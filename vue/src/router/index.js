@@ -9,6 +9,7 @@ import MovieDetails from '../views/MovieDetails'
 import PlayWatchList from '../views/PlayWatchList'
 import GenreBrowse from '../views/GenreBrowse'
 import UserProfile from '../views/UserProfile'
+import UserSettings from '../views/UserSettings'
 import Genre from '../views/Genre'
 
 Vue.use(Router)
@@ -84,6 +85,14 @@ const router = new Router({
       path: '/profile',
       name: 'user-profile',
       component: UserProfile,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/settings',
+      name: 'settings',
+      component: UserSettings,
       meta: {
         requiresAuth: true
       }
