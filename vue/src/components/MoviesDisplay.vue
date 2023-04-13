@@ -26,8 +26,15 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 li {
   list-style: none;
 }
+div{
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 2vh;}
+  
 </style>
