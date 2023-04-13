@@ -14,30 +14,11 @@
     <button id="forYouBtn">
       <router-link v-bind:to="{ name: 'playlist' }">For You</router-link>
     </button>
-    <!--   <div class="dropdown show">
-      <a
-        class="btn btn-secondary dropdown-toggle"
-        href="#"
-        role="button"
-        id="dropdownMenuLink"
-        data-toggle="dropdown"
-        aria-haspopup="true"
-        aria-expanded="false"
-      >
-        Dropdown link
-      </a>
 
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-        <a class="dropdown-item" href="#">Action</a>
-        <a class="dropdown-item" href="#">Another action</a>
-        <a class="dropdown-item" href="#">Something else here</a>
-      </div>
-    </div> -->
     <div class="genredropdown">
       <button id="genreBtn" href="#">
-        Genres
-        <i class="fa fa-caret-down"></i>
-        <!--What does this do?-->
+        <router-link v-bind:to="{ name: 'genre' }">Genres</router-link>
+        <router-link :to="{name: 'genre-id', params: {genreID: $route.params.genreID}}"> {{genre.name}} </router-link> 
       </button>
       <div class="dropdown-content">
         <a href="#">Action</a>
@@ -52,23 +33,6 @@
       </div>
     </div>
 
-    <!-- <div class="dropdown">
-      <button
-        class="btn btn-secondary dropdown-toggle"
-        type="button"
-        id="dropdownMenuButton"
-        data-toggle="dropdown"
-        aria-haspopup="true"
-        aria-expanded="false"
-      >
-        Dropdown button
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#">Action</a>
-        <a class="dropdown-item" href="#">Another action</a>
-        <a class="dropdown-item" href="#">Something else here</a>
-      </div> -->
-
     <search-bar class="search">Search:</search-bar>
     <input
       class="filter"
@@ -77,8 +41,10 @@
       placeholder="Search Here"
     />
     <button id="userBtn">
-       <router-link v-bind:to="{ name: 'user-profile' }"> Welcome User</router-link>
-     
+      <router-link v-bind:to="{ name: 'user-profile' }">
+        Welcome User</router-link
+      >
+
       <!-- want to be able to input the logged in users name in here-->
       <img
         class="user_icon"
@@ -114,7 +80,10 @@ export default {
   background-color: rgb(210, 130, 230);
 }
 button {
-  border: 5px solid orangered;
+  border-width: 1px;
+  border-color: pink;
+  border-top: none;
+  border-bottom: none;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -122,6 +91,7 @@ button {
   grid-row: 1;
   height: 100%;
   width: 100%;
+  background-color: plum;
 }
 #homeBtn {
   grid-column: 1/2;
@@ -156,10 +126,10 @@ button {
 }
 
 input {
+  border: none;
   grid-row: 1;
   grid-column: 5/6;
   display: flex;
-  border: 5px solid orangered;
   text-align: center;
   color: rgb(50, 20, 185);
 }
@@ -180,7 +150,7 @@ img.user_icon {
 a {
   text-decoration: none;
 }
-a:hover {
+button:hover {
   background-color: rgba(107, 141, 216, 0.5);
 }
 a:active {
