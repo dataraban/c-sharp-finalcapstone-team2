@@ -18,18 +18,12 @@
     <div class="genredropdown">
       <button id="genreBtn" href="#">
         <router-link v-bind:to="{ name: 'genre' }">Genres</router-link>
-        <router-link :to="{name: 'genre-id', params: {genreID: $route.params.genreID}}"> {{genre.name}} </router-link> 
+         
       </button>
       <div class="dropdown-content">
-        <a href="#">Action</a>
-        <a href="#">Thriller</a>
-        <a href="#">Comedy</a>
-        <a href="#">Mystery</a>
-        <a href="#">Children's Movies</a>
-        <a href="#">Romance</a>
-        <a href="#">Horror</a>
-        <a href="#">Independent Films</a>
-        <a href="#">International Films</a>
+       <router-link v-for="genre in genres" :key="genre.id" v-bind:to="{name: 'genre-id', params: {id: genre.id}}">
+      {{ genre.name }}
+     </router-link>
       </div>
     </div>
 
@@ -61,9 +55,20 @@
 
 <script>
 import SearchBar from "./SearchBar.vue";
+import MoviesService from '../services/MoviesService'
 export default {
   components: { SearchBar },
-};
+  data() {
+        return {
+            genres: []
+        }
+    },
+    created() {    
+        MoviesService.getAllGenres().then((response) => {
+        this.genres = response.data.genres;
+        });
+    }
+}
 </script>
 
 
