@@ -38,4 +38,4 @@ export default {
   border: 5px solid yellow;
   /* need to find a way to loop through all the movies and display them as seperate elements so they can be manipulated */
 }
-</style>
+</style>npm

@@ -18,6 +18,7 @@
     <div class="genredropdown">
       <button id="genreBtn" href="#">
         <router-link v-bind:to="{ name: 'genre' }">Genres</router-link>
+        <router-link :to="{name: 'genre-id', params: {genreID: $route.params.genreID}}"> {{genre.name}} </router-link> 
       </button>
       <div class="dropdown-content">
         <a href="#">Action</a>
