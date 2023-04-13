@@ -16,9 +16,7 @@
     >
 
     <div class="genredropdown">
-      <router-link v-bind:to="{ name: 'genre' }"
-        ><button id="genreBtn" href="#">Genres</button></router-link
-      >
+      <button id="genreBtn" href="#">Genres</button>
 
       <div class="dropdown-content">
         <router-link
@@ -111,26 +109,26 @@ button {
 .genredropdown {
   float: left;
   overflow: hidden;
-
 }
 .dropdown-content {
-  display: none;  
+  display: none;
   position: absolute;
   background-color: #f1f1f1;
-  
+  overflow: scroll;
+  max-height: 25vh;
 }
 .dropdown-content a {
   float: none;
   display: block;
-  text-align: center;
   padding: 12px 16px;
   color: black;
 }
 .genredropdown:hover .dropdown-content {
-  display: block;
+  display: inline-block;
 }
 .genredropdown:hover a:hover {
-background: orange;}
+  background: orange;
+}
 
 input {
   border: none;

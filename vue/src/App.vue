@@ -33,4 +33,9 @@ export default {
   );
   filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#FF1B6B", endColorstr="#45CAFF", GradientType=1 );
 }
+.nav{
+  background: none;
+
+}
+
 </style>
