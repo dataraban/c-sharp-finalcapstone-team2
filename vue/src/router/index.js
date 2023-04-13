@@ -9,6 +9,7 @@ import MovieDetails from '../views/MovieDetails'
 import PlayWatchList from '../views/PlayWatchList'
 import GenreBrowse from '../views/GenreBrowse'
 import UserProfile from '../views/UserProfile'
+import Genre from '../views/Genre'
 
 Vue.use(Router)
 
@@ -66,6 +67,11 @@ const router = new Router({
       path: '/genre/',
       name: 'genre',
       component: GenreBrowse
+    },
+    {
+      path: '/genre/:id',
+      name: 'genre-id',
+      component: Genre 
     },
     {
       path: '/playlist',
