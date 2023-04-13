@@ -12,33 +12,17 @@
       <!-- </router-link> -->
 
       <p>{{ movie.original_title }} | {{ movie.release_date }}</p>
-      <!-- {{movie.poster_path}} gets literal path -->
     </li>
   </div>
 </template>
 
 <script>
-// import MoviesService from "../services/MoviesService";
 
 export default {
-  name: "movies-list",
-  props: ['movies'],
-  data() {
-    return {
-      // movies: [],
-    };
-  },
-  methods: {
-    getMovieById(id) {
-      this.$router.push(`/movie/${id}`);
-      //console.log(id);
-    },
-  },
-  // created() {
-  //   MoviesService.listMovies().then((response) => {
-  //     this.movies = response.data.results;
-  //   });
-  // },
+  name: "movies-display",
+  props: {
+    movies: []
+  }
 };
 </script>
 
