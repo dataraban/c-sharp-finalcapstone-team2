@@ -1,24 +1,24 @@
 <template>
   <div id="nav">
-    <button id="homeBtn">
-      <router-link class="home" v-bind:to="{ name: 'home' }">Home</router-link>
-    </button>
-    <button id="logoutBtn">
+    
+      <router-link class="home" v-bind:to="{ name: 'home' }"><button id="homeBtn">Home</button></router-link>
+    
+    
       <router-link
         class="logout"
         v-bind:to="{ name: 'logout' }"
         v-if="$store.state.token != ''"
-        >Logout</router-link
+        ><button id="logoutBtn">Logout</button></router-link
       >
-    </button>
-    <button id="forYouBtn">
-      <router-link v-bind:to="{ name: 'playlist' }">For You</router-link>
-    </button>
+    
+    
+      <router-link v-bind:to="{ name: 'playlist' }"><button id="forYouBtn">For You</button></router-link>
+    
 
     <div class="genredropdown">
       <button id="genreBtn" href="#">
         <router-link v-bind:to="{ name: 'genre' }">Genres</router-link>
-        <router-link :to="{name: 'genre-id', params: {genreID: $route.params.genreID}}"> {{genre.name}} </router-link> 
+        <!-- <router-link :to="{name: 'genre-id', params: {genreID: $route.params.genreID}}"> {{genre.name}} </router-link>  -->
       </button>
       <div class="dropdown-content">
         <a href="#">Action</a>
