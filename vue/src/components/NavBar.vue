@@ -14,30 +14,10 @@
     <button id="forYouBtn">
       <router-link v-bind:to="{ name: 'playlist' }">For You</router-link>
     </button>
-    <!--   <div class="dropdown show">
-      <a
-        class="btn btn-secondary dropdown-toggle"
-        href="#"
-        role="button"
-        id="dropdownMenuLink"
-        data-toggle="dropdown"
-        aria-haspopup="true"
-        aria-expanded="false"
-      >
-        Dropdown link
-      </a>
 
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-        <a class="dropdown-item" href="#">Action</a>
-        <a class="dropdown-item" href="#">Another action</a>
-        <a class="dropdown-item" href="#">Something else here</a>
-      </div>
-    </div> -->
     <div class="genredropdown">
       <button id="genreBtn" href="#">
-        Genres
-        <i class="fa fa-caret-down"></i>
-        <!--What does this do?-->
+        <router-link v-bind:to="{ name: 'genre' }">Genres</router-link>
       </button>
       <div class="dropdown-content">
         <a href="#">Action</a>
@@ -52,23 +32,6 @@
       </div>
     </div>
 
-    <!-- <div class="dropdown">
-      <button
-        class="btn btn-secondary dropdown-toggle"
-        type="button"
-        id="dropdownMenuButton"
-        data-toggle="dropdown"
-        aria-haspopup="true"
-        aria-expanded="false"
-      >
-        Dropdown button
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#">Action</a>
-        <a class="dropdown-item" href="#">Another action</a>
-        <a class="dropdown-item" href="#">Something else here</a>
-      </div> -->
-
     <search-bar class="search">Search:</search-bar>
     <input
       class="filter"
@@ -77,8 +40,10 @@
       placeholder="Search Here"
     />
     <button id="userBtn">
-       <router-link v-bind:to="{ name: 'user-profile' }"> Welcome User</router-link>
-     
+      <router-link v-bind:to="{ name: 'user-profile' }">
+        Welcome User</router-link
+      >
+
       <!-- want to be able to input the logged in users name in here-->
       <img
         class="user_icon"
