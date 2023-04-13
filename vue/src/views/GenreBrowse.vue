@@ -7,6 +7,7 @@
       List of Genres
       <li v-for="genre in genres" :key="genre.id">
       {{ genre.name }}
+      
       </li>
       </ul>
   </div>

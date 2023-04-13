@@ -28,7 +28,23 @@
           required
         />
       </div>
-      <button type="submit">Create Account</button>
+        <div>
+    <b-form-checkbox
+      id="checkbox-1"
+      v-model="status"
+      name="checkbox-1"
+      value="Accepted"
+      unchecked-value="Not Accepted"
+    >
+      <div class="popup" v-on:click="clickPopup()">I accept the terms and conditions:
+        <span class="popuptext" id="termsPopup"><a>Please accept!</a></span>
+        </div>
+    </b-form-checkbox>
+
+    <div>State: <strong>{{ status }}</strong></div>
+  </div>
+      
+      <button type="submit" :disabled="!status">Create Account</button>
       <p>
         <router-link :to="{ name: 'login' }"
           >Already have an account? Log in.</router-link
@@ -45,6 +61,7 @@ export default {
   name: "register",
   data() {
     return {
+      status: 'Not Accepted',
       user: {
         username: "",
         password: "",
@@ -84,6 +101,10 @@ export default {
       this.registrationErrors = false;
       this.registrationErrorMsg = "There were problems registering this user.";
     },
+    clickPopup() {
+      var popup = document.getElementById("termsPopup");
+      popup.classList.toggle("show");
+    }
   },
 };
 </script>
@@ -120,5 +141,54 @@ button {
   margin-bottom: 5vh;
   max-width: fit-content;
   background-color: deeppink;
+}
+.popup {
+    position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+.popup .popuptext {
+  visibility: hidden;
+  width: 160px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -80px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
 }
 </style>
