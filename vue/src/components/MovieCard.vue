@@ -1,10 +1,12 @@
 <template>
   <div class="card">
-    <h2 class="movie-title">{{movie.title}}</h2>
+    <h2 class="movie-title">{{ movie.title }}</h2>
     <!--Get movie image -->
-        <router-link v-bind:to="{name:'movie-details', params: {id: movie.id}}">
-            {{ movie.title }}
-        </router-link>        
+    <router-link
+      v-bind:to="{ name: 'movie-details', params: { id: movie.id } }"
+    >
+      {{ movie.title }}
+    </router-link>
     <!-- <img v-if="book.isbn" v-bind:src="'http://covers.openlibrary.org/b/isbn/' + book.isbn + '-M.jpg'" />
     <h3 class="book-author">{{ book.author }}</h3>
     <div class="button-container" v-if="! enableAdd">
@@ -17,34 +19,34 @@
 
 <script>
 export default {
-    name: 'movie-card',
-    props: {
-        book: Object
-    },
-    methods: {
-        // setRead(value) {
-        //     this.$store.commit('SET_READ_STATUS', {book: this.book, value: value});
-        // },
-        // addToReadingList(book) {
-        //     let addedBook = Object.assign({ read: false }, book);
-        //     delete addedBook.bestSeller;
-        //     delete addedBook.newRelease;
-        //     this.$store.commit('SAVE_BOOK', addedBook);
-        // }
-    }
-}
+  name: "movie-card",
+  props: {
+    book: Object,
+  },
+  methods: {
+    // setRead(value) {
+    //     this.$store.commit('SET_READ_STATUS', {book: this.book, value: value});
+    // },
+    // addToReadingList(book) {
+    //     let addedBook = Object.assign({ read: false }, book);
+    //     delete addedBook.bestSeller;
+    //     delete addedBook.newRelease;
+    //     this.$store.commit('SAVE_BOOK', addedBook);
+    // }
+  },
+};
 </script>
 
 <style>
 .card {
-    border: 2px solid black;
-    border-radius: 10px;
-    width: 250px;
-    height: 550px;
-    margin: 20px;
+  border: 2px solid black;
+  border-radius: 10px;
+  width: 250px;
+  height: 550px;
+  margin: 20px;
 }
 
 .card .movie-title {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 </style>
