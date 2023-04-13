@@ -80,7 +80,10 @@ export default {
   background-color: rgb(210, 130, 230);
 }
 button {
-  border: 5px solid orangered;
+  border-width: 1px;
+  border-color: pink;
+  border-top: none;
+  border-bottom: none;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -88,6 +91,7 @@ button {
   grid-row: 1;
   height: 100%;
   width: 100%;
+  background-color: plum;
 }
 #homeBtn {
   grid-column: 1/2;
@@ -122,10 +126,10 @@ button {
 }
 
 input {
+  border: none;
   grid-row: 1;
   grid-column: 5/6;
   display: flex;
-  border: 5px solid orangered;
   text-align: center;
   color: rgb(50, 20, 185);
 }
@@ -146,7 +150,7 @@ img.user_icon {
 a {
   text-decoration: none;
 }
-a:hover {
+button:hover {
   background-color: rgba(107, 141, 216, 0.5);
 }
 a:active {

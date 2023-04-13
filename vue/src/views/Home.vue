@@ -26,16 +26,5 @@ export default {
 </script>
 
 <style scoped>
-.grid-container {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 10px;
-  font-size: 100%;
-  font-family: fantasy;
-  border: 5px solid white;
-}
-.movie-list {
-  border: 5px solid yellow;
-  /* need to find a way to loop through all the movies and display them as seperate elements so they can be manipulated */
-}
-</style>npm
+
+</style>

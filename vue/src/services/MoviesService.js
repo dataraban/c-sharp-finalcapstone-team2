@@ -12,10 +12,9 @@ export default {
     return apiService.get(`https://api.themoviedb.org/3/movie/${id}?api_key=801560b2c5402810ded763d877958808`);
   },
 
-  // getMovieByGenre(genre) {
-  //   //incorrect API call CHANGE THIS!
-  //   return apiService.get(`https://api.themoviedb.org/3/${genre}/movie/list?api_key=801560b2c5402810ded763d877958808`);
-  // },
+  getMovieByGenre(genre_id) {
+    return apiService.get(`https://api.themoviedb.org/3/discover/movie?&api_key=801560b2c5402810ded763d877958808&with_genres=${genre_id}`);
+  },
 
   getAllGenres() {
     return apiService.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=801560b2c5402810ded763d877958808`);
