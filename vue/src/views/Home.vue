@@ -1,5 +1,5 @@
 <template>
-  <div class="home">c
+  <div class="home">
     <div class="grid-container">
       <movies-display v-bind:movies="this.movies"/>
     </div>

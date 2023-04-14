@@ -41,6 +41,12 @@ export default new Vuex.Store({
     },
     CHANGE_GENRE_ID(state, newGenreId) {
       state.currentGenreId = newGenreId;
-    }
+    },
+    // ADD_PLAYLIST(state, review) {
+    //   state.reviews.unshift(review); working on these for the watch list page
+    // },
+    // ADD_WATCHLIST(state, review) {
+    //   state.reviews.unshift(review);
+    // } 
   }
 })
