@@ -1,26 +1,48 @@
 <template>
   <div class="home">
     <div class="grid-container">
-      <!-- <movie-card/> -->
-      <movies-list class="movie-list" />
+      <movies-display v-bind:movies="this.movies"/>
     </div>
     <div class="carousel">
       <!-- saving space to build in carousel functionality here -->
     </div>
   </div>
 </template>
-
 <script>
-//import MovieCard from '../components/MovieCard.vue';
-import MoviesList from "../components/MoviesList.vue";
+import MoviesDisplay from '../components/MoviesDisplay.vue'
+import MoviesService from '../services/MoviesService'
+
 export default {
-  components: {
-    //MovieCard,
-    MoviesList  },
   name: "home",
+  data() {
+    return {
+      movies: [],
+    };
+  },
+  methods: {
+    getMovieById(id) {
+      this.$router.push(`/movie/${id}`);
+      //console.log(id);
+    },
+  },
+  created() {
+    MoviesService.listMovies().then((response) => {
+      this.movies = response.data.results;
+    });
+  },
+  components: { MoviesDisplay }
 };
 </script>
 
 <style scoped>
+ul{
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 2vh;}
+li{
+  padding-inline: 5vw;
+}
 
 </style>
