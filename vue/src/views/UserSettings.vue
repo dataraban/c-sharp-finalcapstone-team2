@@ -1,22 +1,46 @@
 <template>
    <div>
-    <nav-bar class="nav"></nav-bar>
     <div id="settings">
-        <p>Current password:</p>
-        <input type="text">
-        <p>New password:</p>
-        <input type="text">
+      <p>User Settings</p>
         <div>
   <b-form @submit.stop.prevent>
-    <label for="text-password">Password</label>
+    <label for="text-password">Current Password</label>
+    <b-form-input type="password" id="text-password"></b-form-input>
+    <label for="text-password">New Password</label>
     <b-form-input type="password" id="text-password" aria-describedby="password-help-block"></b-form-input>
     <b-form-text id="password-help-block">
-      Your password must be 8-20 characters long, contain letters and numbers, and must not
+      Your new password must be 8-20 characters long, contain letters and numbers, and must not
       contain spaces, special characters, or emoji.
     </b-form-text>
+    <div class="submit">
+      <button>Reset Password</button>
+      </div>
    </b-form>
 </div>
         </div>
+  <form @submit.prevent="handleSubmit">
+    <label>Name:</label>
+    <input type="name" v-model="name"/>
+    <label>Age:</label>
+    <input type="age" v-model="age"/>
+    <label>Genres:</label>
+    <input type="text" v-model="tempGenre" @keyup.alt="addGenre"/>
+    <div v-for="genre in favGenre" :key="genre" class="pill">
+      <span @click="deleteGenre(genre)">{{genre}}</span>
+      </div>
+    <div class="divider">  
+    <label>Favorite Movies:</label>
+    <input type="movie" v-model="tempMovie" @keyup.alt="addMovie"/>
+    <div v-for="movie in movies" :key="movie" class="pill">
+      <span @click="deleteMovie(movie)">{{movie}}</span>
+      </div>
+      </div>
+    <label>About Me:</label>
+    <input type="info" v-model="info"/>
+    <div class="submit">
+      <button>Update Your Profile</button>
+      </div>
+    </form>
          <b-carousel
       id="carousel-1"
       v-model="slide"
@@ -85,16 +109,59 @@
 </template>
 
 <script>
-import NavBar from "../components/NavBar.vue";
 export default {
 name: "user-settings",
-  components: { NavBar },
+  components: {},
   data() {
     return {
         file1: null,
-        file2: null
+        file2: null,
+        age: '',
+        name: '',
+        tempGenre: [],
+        favGenre: [],
+        tempMovie: [],
+        movies: [],
+        info: ''
     };
   },
+  methods: {
+    addGenre (e) {
+      if (e.key === ',' && this.tempGenre) {
+        if (!this.favGenre.includes(this.tempGenre)) {
+          this.favGenre.push(this.tempGenre)
+        }
+        this.tempGenre = ''
+      }
+    },
+    deleteGenre (genre) {
+      this.favGenre = this.favGenre.filter((item) => {
+        return genre != item
+      })
+    },
+    addMovie (e) {
+      if (e.key === ',' && this.tempMovie) {
+        if (!this.movies.includes(this.tempMovie)) {
+          this.movies.push(this.tempMovie)
+        }
+        this.tempMovie = ''
+      }
+    },
+    deleteMovie (movie) {
+      this.movies = this.movies.filter((item) => {
+        return movie != item
+      })
+    },
+    handleSubmit() {
+      console.log('Form submitted.')
+      console.log('name: ', this.name)
+      console.log('age ', this.age)
+      console.log('Favorite Genres: ', this.favGenre)
+      console.log('Favorite Movies: ', this.movies)
+      console.log('info: ', this.info)
+
+    }
+  }
 };
 </script>
 
@@ -111,4 +178,54 @@ display: flex;
   #password-help-block {
       color: black;
   }
+
+  form {
+  max-width: 420px;
+  margin: 30px auto;
+  background: white;
+  text-align: left;
+  padding: 40px;
+  border-radius: 10px;
+}
+label {
+  color: #aaa;
+  display: inline-block;
+  margin: 25px 0 15px;
+  font-size: 0.6em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+input {
+  display: block;
+  padding: 10px 6px;
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  color: #555;
+}
+.pill {
+    display: inline-block;
+    margin: 20px 10px 0 0;
+    padding: 6px 12px;
+    background: #eee;
+    border-radius: 20px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    font-weight: bold;
+    color: #777;
+    cursor: pointer;
+}
+button {
+    background: #0b6dff;
+    border: 0;
+    padding: 10px 20px;
+    margin-top: 20px;
+    color: white;
+    border-radius: 20px;
+}
+.submit {
+    text-align: center;
+}
 </style>
