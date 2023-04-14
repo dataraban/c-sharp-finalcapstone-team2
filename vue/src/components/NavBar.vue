@@ -1,29 +1,31 @@
 <template>
   <div id="nav">
-    <button id="homeBtn">
-      <router-link class="home" v-bind:to="{ name: 'home' }">Home</router-link>
-    </button>
-    <button id="logoutBtn">
-      <router-link
-        class="logout"
-        v-bind:to="{ name: 'logout' }"
-        v-if="$store.state.token != ''"
-        >Logout</router-link
-      >
-    </button>
-    <button id="forYouBtn">
-      <router-link v-bind:to="{ name: 'playlist' }">For You</router-link>
-    </button>
+    <router-link class="home" v-bind:to="{ name: 'home' }">
+      <button id="homeBtn">Home</button></router-link
+    >
+
+    <router-link
+      class="logout"
+      v-bind:to="{ name: 'logout' }"
+      v-if="$store.state.token != ''"
+      ><button id="logoutBtn">Logout</button></router-link
+    >
+
+    <router-link v-bind:to="{ name: 'playlist' }">
+      <button id="forYouBtn">For You</button></router-link
+    >
 
     <div class="genredropdown">
-      <button id="genreBtn" href="#">
-        <router-link v-bind:to="{ name: 'genre' }">Genres</router-link>
-         
-      </button>
+      <button id="genreBtn" href="#">Genres</button>
+
       <div class="dropdown-content">
-       <router-link v-for="genre in genres" :key="genre.id" v-bind:to="{name: 'genre-id', params: {id: genre.id}}">
-      {{ genre.name }}
-     </router-link>
+        <router-link
+          v-for="genre in genres"
+          :key="genre.id"
+          v-bind:to="{ name: 'genre-id', params: { id: genre.id } }"
+        >
+          {{ genre.name }}
+        </router-link>
       </div>
     </div>
 
@@ -34,41 +36,35 @@
       v-model="filteredData"
       placeholder="Search Here"
     />
-    <button id="userBtn">
-      <router-link v-bind:to="{ name: 'user-profile' }">
-        Welcome User</router-link
-      >
+    <router-link v-bind:to="{ name: 'user-profile' }">
+      <button id="userBtn">
+        Welcome User
 
-      <!-- want to be able to input the logged in users name in here-->
-      <img
-        class="user_icon"
-        src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png"
-      />
-    </button>
-
-    <router-view />
-    <div>
-      <search-bar />
-    </div>
+        <!-- want to be able to input the logged in users name in here-->
+        <img
+          class="user_icon"
+          src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png"
+        /></button
+    ></router-link>
   </div>
 </template>
 
 <script>
 import SearchBar from "./SearchBar.vue";
-import MoviesService from '../services/MoviesService'
+import MoviesService from "../services/MoviesService";
 export default {
   components: { SearchBar },
   data() {
-        return {
-            genres: []
-        }
-    },
-    created() {    
-        MoviesService.getAllGenres().then((response) => {
-        this.genres = response.data.genres;
-        });
-    }
-}
+    return {
+      genres: [],
+    };
+  },
+  created() {
+    MoviesService.getAllGenres().then((response) => {
+      this.genres = response.data.genres;
+    });
+  },
+};
 </script>
 
 
@@ -118,16 +114,20 @@ button {
   display: none;
   position: absolute;
   background-color: #f1f1f1;
+  overflow: scroll;
+  max-height: 25vh;
 }
 .dropdown-content a {
   float: none;
   display: block;
-  text-align: left;
   padding: 12px 16px;
   color: black;
 }
 .genredropdown:hover .dropdown-content {
-  display: block;
+  display: inline-block;
+}
+.genredropdown:hover a:hover {
+  background: orange;
 }
 
 input {
