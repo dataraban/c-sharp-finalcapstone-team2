@@ -12,7 +12,8 @@
     >
 
     <router-link v-bind:to="{ name: 'playlist' }">
-      <button id="forYouBtn">For You</button></router-link>
+      <button id="watchListBtn">Watch List</button></router-link
+    >
 
     <div class="genredropdown">
       <button id="genreBtn" href="#">Genres</button>
@@ -85,16 +86,15 @@ export default {
 
 
 <style scoped>
+@import url('https://fonts.cdnfonts.com/css/question');
 #nav {
   display: grid;
   width: 100%;
   height: 100%;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: 2, 1fr;
-  padding: 10px;
-  font-size: 100%;
-  font-family: fantasy;
-  background-color: rgb(210, 130, 230);
+  padding: 15px;
+  background-image: url("https://static.vecteezy.com/system/resources/previews/008/630/206/original/groovy-pattern-groovy-background-camo-pattern-free-vector.jpg");
 }
 button {
   border-width: 1px;
@@ -104,7 +104,9 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgb(50, 20, 185);
+  color: rgb(113, 12, 133);
+  font-size: large;
+  font-family: 'Question', sans-serif;
   grid-row: 1;
   height: 100%;
   width: 100%;
@@ -116,7 +118,7 @@ button {
 #logoutBtn {
   grid-column: 2/3;
 }
-#forYouBtn {
+#watchListBtn {
   grid-column: 3/4;
 }
 #genreBtn {
@@ -173,7 +175,7 @@ a {
   text-decoration: none;
 }
 button:hover {
-  background-color: rgba(107, 141, 216, 0.5);
+  background-color: rgba(172, 101, 156, 0.5);
 }
 a:active {
   background-color: rgb(33, 12, 219);
