@@ -23,9 +23,18 @@
           v-for="genre in genres"
           :key="genre.id"
           v-bind:to="{ name: 'genre-id', params: { id: genre.id } }"
+          v-on:click.native="changeGenre(genre.id)"
         >
           {{ genre.name }}
         </router-link>
+        <!-- <div
+          v-for="genre in genres"
+          :key="genre.id"
+          v-bind:to="{ name: 'genre-id', params: { id: genre.id } }"
+          v-on:click="changeGenre(genre.id)"
+        >
+          {{ genre.name }}
+        </div> -->
       </div>
     </div>
 
@@ -64,6 +73,14 @@ export default {
       this.genres = response.data.genres;
     });
   },
+  methods: {
+    changeGenre(genreId) {
+      //this.$store.commit('CHANGE_GENRE_ID', genreId);
+      // this.$router.push({name: 'genre-id', params:{id: genreId}})
+      this.$router.go();
+      console.log(genreId);
+    }
+  }
 };
 </script>
 
@@ -116,7 +133,8 @@ button {
   position: absolute;
   background-color: #f1f1f1;
   overflow: scroll;
-  max-height: 25vh;
+  max-height: 35vh;
+  width: 35vh;
 }
 .dropdown-content a {
   float: none;
