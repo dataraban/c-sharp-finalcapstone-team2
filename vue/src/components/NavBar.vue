@@ -86,7 +86,7 @@ export default {
 
 
 <style scoped>
-@import url('https://fonts.cdnfonts.com/css/question');
+@import url('https://fonts.cdnfonts.com/css/dressed');
 #nav {
   display: grid;
   width: 100%;
@@ -106,7 +106,7 @@ button {
   justify-content: center;
   color: rgb(113, 12, 133);
   font-size: large;
-  font-family: 'Question', sans-serif;
+  font-family: 'Dressed', sans-serif;
   grid-row: 1;
   height: 100%;
   width: 100%;
