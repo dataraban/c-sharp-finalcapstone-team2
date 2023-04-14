@@ -1,17 +1,11 @@
 <template>
-    <div>
-    <nav-bar class="nav"></nav-bar>
-    <div id="profilePage">
-        
-    </div>
-
-    </div>
+    
+    <div id="profilePage"></div>
 </template>
 <script>
-import NavBar from "../components/NavBar.vue";
 export default {
   name: "user-profile",
-  components: { NavBar },
+  components: {  },
   data() {
     return {};
   },

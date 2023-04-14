@@ -1,6 +1,5 @@
 <template>
   <div class="playlist">
-    <nav-bar class="nav"></nav-bar>
     <div class="watchlist">
       <h1>Welcome!</h1>
       <h2>Here you can create a watchlist or a playlist.</h2>
@@ -17,11 +16,10 @@
 </template>
 
 <script>
-import NavBar from "../components/NavBar.vue";
 
 export default {
   name: "playwatchlist",
-  components: { NavBar },
+  components: {  },
   data() {
     return {
       inputPlaylistName: "",

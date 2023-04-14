@@ -7,7 +7,6 @@ import Register from '../views/Register.vue'
 import store from '../store/index'
 import MovieDetails from '../views/MovieDetails'
 import PlayWatchList from '../views/PlayWatchList'
-import GenreBrowse from '../views/GenreBrowse'
 import UserProfile from '../views/UserProfile'
 import UserSettings from '../views/UserSettings'
 import Genre from '../views/Genre'
@@ -64,22 +63,19 @@ const router = new Router({
       name: 'movie-details',
       component: MovieDetails
     },
-    {
-      path: '/genre/',
-      name: 'genre',
-      component: GenreBrowse
-    },
+
     {
       path: '/genre/:id',
       name: 'genre-id',
-      component: Genre 
+      component: Genre
     },
     {
       path: '/playlist',
       name: 'playlist',
       component: PlayWatchList,
       meta: {
-        requiresAuth: true}
+        requiresAuth: true
+      }
     },
     {
       path: '/profile',
