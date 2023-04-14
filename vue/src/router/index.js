@@ -67,7 +67,10 @@ const router = new Router({
     {
       path: '/genre/:id',
       name: 'genre-id',
-      component: Genre
+      component: Genre,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/playlist',
