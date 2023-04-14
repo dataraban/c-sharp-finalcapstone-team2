@@ -14,6 +14,7 @@ export default {
 
 <style scoped>
 * {
+  background-size: cover;
   box-sizing: border-box;
   background: hsla(339, 100%, 55%, 1);
   background: linear-gradient(
@@ -32,6 +33,7 @@ export default {
     hsla(197, 100%, 64%, 1) 100%
   );
   filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#FF1B6B", endColorstr="#45CAFF", GradientType=1 );
+  font-family: fantasy;
 }
 .nav{
   background: none;
