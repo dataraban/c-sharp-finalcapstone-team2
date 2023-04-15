@@ -21,7 +21,7 @@
 export default {
   name: "movie-card",
   props: {
-    book: Object,
+    movie: Object,
   },
   methods: {
     // setRead(value) {
