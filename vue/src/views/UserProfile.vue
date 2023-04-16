@@ -1,11 +1,16 @@
 <template>
     
-    <div id="profilePage"></div>
+    <div id="profilePage">
+      <div id="profilePhoto">
+        <upload/>
+        </div>
+    </div>
 </template>
 <script>
+import Upload from '../components/Upload.vue'
 export default {
   name: "user-profile",
-  components: {  },
+  components: { Upload  },
   data() {
     return {};
   },
@@ -20,4 +25,9 @@ display: flex;
   margin: auto;
   justify-content: center;
   align-items: center;}
+
+  #profilePhoto {
+    height: 150px;
+    width: 150px;
+  }
 </style>
