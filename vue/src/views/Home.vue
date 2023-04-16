@@ -35,13 +35,12 @@ export default {
 </script>
 
 <style scoped>
-ul{
+.grid-container{
   list-style: none;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding-top: 2vh;}
-li{
+  padding-top: 2vh;
   padding-inline: 5vw;
 }
 
