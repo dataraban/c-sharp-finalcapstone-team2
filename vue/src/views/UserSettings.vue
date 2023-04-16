@@ -1,6 +1,5 @@
 <template>
    <div>
-    <nav-bar class="nav"></nav-bar>
     <div id="settings">
         <p>Current password:</p>
         <input type="text">
@@ -85,10 +84,9 @@
 </template>
 
 <script>
-import NavBar from "../components/NavBar.vue";
 export default {
 name: "user-settings",
-  components: { NavBar },
+  components: {  },
   data() {
     return {
         file1: null,
