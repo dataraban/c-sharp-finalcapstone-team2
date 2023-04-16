@@ -1,40 +1,39 @@
 <template>
   <div>
     <li v-for="movie in movies" :key="movie.id">
-      {{ movie.original_title }}
-      <router-link v-bind:to="{name: 'movie-details', params: {id: movie.id}}">
-
-      <img
-        v-bind:src="'https://image.tmdb.org/t/p/w185' + movie.poster_path"
-        
-      />
-
+      <router-link
+        v-bind:to="{ name: 'movie-details', params: { id: movie.id } }"
+      >
+        <img
+          v-bind:src="'https://image.tmdb.org/t/p/w185' + movie.poster_path"
+        />
       </router-link>
 
-      <p>{{ movie.original_title }} | {{ movie.release_date }}</p>
+      <p>{{ movie.original_title }}</p>
     </li>
   </div>
 </template>
 
 <script>
-
 export default {
   name: "movies-display",
   props: {
-    movies: []
-  }
+    movies: [],
+  },
 };
 </script>
 
 <style scoped>
-li {
-  list-style: none;
-}
-div{
-  list-style: none;
+
+div {
   display: flex;
   flex-wrap: wrap;
+  padding-top: 2vh;
   justify-content: center;
-  padding-top: 2vh;}
-  
+}
+li{
+text-align: start;}
+
+p{
+overflow-wrap: break-word;}
 </style>
