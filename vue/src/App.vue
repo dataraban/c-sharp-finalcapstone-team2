@@ -16,21 +16,21 @@ export default {
 * {
   background-size: cover;
   box-sizing: border-box;
-  background: hsla(339, 100%, 55%, 1);
+  background:  rgb(194, 3, 252) 0%,;
   background: linear-gradient(
     90deg,
-    hsla(339, 100%, 55%, 1) 0%,
-    hsla(197, 100%, 64%, 1) 100%
+     rgb(194, 3, 252) 0%,
+    rgb(255, 155, 41) 100%
   );
   background: -moz-linear-gradient(
     90deg,
-    hsla(339, 100%, 55%, 1) 0%,
-    hsla(197, 100%, 64%, 1) 100%
+     rgb(194, 3, 252) 0%,
+    rgb(255, 155, 41) 100%
   );
   background: -webkit-linear-gradient(
     90deg,
-    hsla(339, 100%, 55%, 1) 0%,
-    hsla(197, 100%, 64%, 1) 100%
+     rgb(194, 3, 252) 0%,
+    rgb(255, 155, 41) 100%
   );
   filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#FF1B6B", endColorstr="#45CAFF", GradientType=1 );
   font-family: fantasy;
