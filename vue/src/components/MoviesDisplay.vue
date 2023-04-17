@@ -9,7 +9,7 @@
         />
       <!-- </router-link> -->
 
-      <h5 class="card-body text-center">{{ movie.original_title }}        
+      <h5 class="card-body">{{ movie.original_title }}        
       </h5>
     </div>
     <!-- end card front -->
@@ -47,14 +47,15 @@ div {
   padding-top: 2vh;
   justify-content: center;
 }
+
 li{
-text-align: start;}
+text-align: center;}
 
 p{
 overflow-wrap: break-word;}
 
 .card{
-  margin: 10px;
+  margin: 1%;
 }
 
 .card-flip > div {
