@@ -1,7 +1,6 @@
 <template>
   <div id="login">
     <form @submit.prevent="login">
-      <h1>Please Sign In</h1>
       <div role="alert" v-if="invalidCredentials">
         Invalid username and password!
       </div>
@@ -24,7 +23,7 @@
       </div>
       <button type="submit">Sign in</button>
       <p>
-        <router-link :to="{ name: 'register' }"
+        <router-link class="needAcct" :to="{ name: 'register' }"
           >Need an account? Sign up.</router-link
         >
       </p>
@@ -100,6 +99,9 @@ button {
   margin-top: 5vh;
   margin-bottom: 5vh;
   max-width: fit-content;
-  background-color: deeppink;
+  background-color: rgb(167, 16, 167);
+}
+.needAcct {
+  color: rgb(0,0,0);
 }
 </style>
