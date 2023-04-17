@@ -18,8 +18,8 @@ namespace Capstone.DAO
 
         public IList<UserMovie> GetFavoriteMovies(int userId)
         {
-            List<UserMovie> returnUserMovies = null;
-
+            //List<UserMovie> returnUserMovies = null;
+            IList<UserMovie> userMovies = new List<UserMovie>();
             try
             {
                 using (SqlConnection conn = new SqlConnection(connectionString))
@@ -35,32 +35,102 @@ namespace Capstone.DAO
                     while (reader.Read())
                     {
                         //add stuff to list
+                        UserMovie userMovie = new UserMovie();
+
+                        userMovie.UserId = Convert.ToInt32(reader["user_id"]);
+                        userMovie.MovieId = Convert.ToInt32(reader["movie_id"]);
+
+                        userMovies.Add(userMovie);
+
                     }
+                    return userMovies; 
                 }
             }
             catch (SqlException)
             {
                 throw;
             }
-
-            return returnUserMovies;
         }
 
         public UserMovie AddFavoriteMovie(int userId, int movieId)
         {
-            throw new NotImplementedException();
+            UserMovie userMovie = new UserMovie();
+            try
+            {
+                using(SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("INSERT INTO user_movie (user_id, movie_id) VALUES (@user_id, @movie_id);",
+                        conn);
+                    cmd.Parameters.AddWithValue("@user_id", userId);
+                    cmd.Parameters.AddWithValue("@movie_id", movieId);
+
+                    cmd.ExecuteNonQuery();
+                }
+                return userMovie;
+            }
+            catch (Exception ex)
+            {
+                throw new NotImplementedException();
+            }
+            
         }
 
         public IList<UserGenre> GetFavoriteGenres(int userId)
         {
-            throw new NotImplementedException();
+            IList<UserGenre> userGenres = new List<UserGenre>(); 
+            try
+            {
+                using(SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("SELECT * FROM user_genre JOIN genre on user_genre.genre_id = genre.genre_id WHERE userId = @user_id;",
+                        conn);
+                    cmd.Parameters.AddWithValue("@userId", userId);
+
+                    SqlDataReader reader = cmd.ExecuteReader(); 
+
+                    while(reader.Read())
+                    {
+                        UserGenre userGenre = new UserGenre();
+
+                        userGenre.UserId = Convert.ToInt32(reader["user_id"]);
+                        userGenre.GenreId = Convert.ToInt32(reader["genre_id"]);
+
+                        userGenres.Add(userGenre); 
+                    }
+                    return userGenres; 
+                }
+            }
+            catch(Exception ex)
+                {
+                throw new NotImplementedException();
+            }
         }
 
-        public UserGenre AddFavoriteGenre(int userId, int genreId)
+        public  UserGenre AddFavoriteGenre(int userId, int genreId)
         {
-            throw new NotImplementedException();
+            UserGenre userGenre = new UserGenre(); 
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("INSERT INTO user_genre (user_id, genre_id) VALUES (@user_id, @genre_id);",
+                        conn);
+                    cmd.Parameters.AddWithValue("@user_id", userId);
+                    cmd.Parameters.AddWithValue("@genre_id", genreId);
+
+                    cmd.ExecuteNonQuery();
+
+                }
+                return userGenre; 
+            }
+            catch (Exception ex)
+            {
+                throw new NotImplementedException();
+            }
         }
-
-
     }
 }
