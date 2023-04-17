@@ -13,14 +13,16 @@ export default {
     name: "genre",
     data() {
         return {
-            moviesByGenre: []
+            moviesByGenre: [],
+            genreId: this.$store.state.currentGenreId
         }
     },
      created() {   
-       console.log(this.$route.params.id) 
+       //console.log(this.$route.params.id) 
         MoviesService.getMovieByGenre(this.$route.params.id).then((response) => {
         
         this.moviesByGenre = response.data.results;
+        
         
         });
     },
@@ -29,5 +31,6 @@ export default {
 </script>
 
 <style>
+
 
 </style>

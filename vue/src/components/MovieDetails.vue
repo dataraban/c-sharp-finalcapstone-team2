@@ -24,6 +24,7 @@
 
 <script>
 import MoviesService from "../services/MoviesService";
+
 export default {
   name: "movie-details",
   data() {
@@ -48,10 +49,12 @@ export default {
 <style>
 .details {
   display: grid;
-  height: 100vh;
-  width: 100vh;
+  height: 100%;
+  width: 100%;
   align-items: center;
   justify-items: center;
   margin: auto;
+  text-align: center;
 }
+
 </style>

@@ -102,4 +102,5 @@ button {
   max-width: fit-content;
   background-color: deeppink;
 }
+.nav{display: none;}
 </style>

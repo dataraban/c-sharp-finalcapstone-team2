@@ -12,7 +12,7 @@
     >
 
     <router-link v-bind:to="{ name: 'playlist' }">
-      <button id="forYouBtn">For You</button></router-link
+      <button id="watchListBtn">Watch List</button></router-link
     >
 
     <div class="genredropdown">
@@ -23,9 +23,18 @@
           v-for="genre in genres"
           :key="genre.id"
           v-bind:to="{ name: 'genre-id', params: { id: genre.id } }"
+          v-on:click.native="changeGenre(genre.id)"
         >
           {{ genre.name }}
         </router-link>
+        <!-- <div
+          v-for="genre in genres"
+          :key="genre.id"
+          v-bind:to="{ name: 'genre-id', params: { id: genre.id } }"
+          v-on:click="changeGenre(genre.id)"
+        >
+          {{ genre.name }}
+        </div> -->
       </div>
     </div>
 
@@ -36,16 +45,33 @@
       v-model="filteredData"
       placeholder="Search Here"
     />
-    <router-link v-bind:to="{ name: 'user-profile' }">
-      <button id="userBtn">
-        Welcome User
+    <div class="userdropdown">
+      <router-link v-bind:to="{ name: 'user-profile' }">
+        <button id="userBtn">
+          Welcome User
 
-        <!-- want to be able to input the logged in users name in here-->
-        <img
-          class="user_icon"
-          src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png"
-        /></button
-    ></router-link>
+          <!-- want to be able to input the logged in users name in here-->
+          <img
+            class="user_icon"
+            src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png"
+          /></button>
+          </router-link>
+          <div class="userdropdown-content">
+            <router-link
+            class="settings"
+            v-bind:to="{ name: 'settings' }"
+            v-if="$store.state.token != ''">
+              <button id="settingsBtn">Settings</button>
+            </router-link>
+
+            <router-link
+            class="logout"
+            v-bind:to="{ name: 'logout' }"
+            v-if="$store.state.token != ''"
+            >
+            <button id="logoutBtn">Logout</button></router-link>
+          </div>
+    </div>
   </div>
 </template>
 
@@ -64,21 +90,28 @@ export default {
       this.genres = response.data.genres;
     });
   },
+  methods: {
+    changeGenre(genreId) {
+      //this.$store.commit('CHANGE_GENRE_ID', genreId);
+      // this.$router.push({name: 'genre-id', params:{id: genreId}})
+      this.$router.go();
+      console.log(genreId);
+    }
+  }
 };
 </script>
 
 
 <style scoped>
+@import url('https://fonts.cdnfonts.com/css/dressed');
 #nav {
   display: grid;
   width: 100%;
   height: 100%;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: 2, 1fr;
-  padding: 10px;
-  font-size: 100%;
-  font-family: fantasy;
-  background-color: rgb(210, 130, 230);
+  padding: 15px;
+  background-image: url("https://static.vecteezy.com/system/resources/previews/008/630/206/original/groovy-pattern-groovy-background-camo-pattern-free-vector.jpg");
 }
 button {
   border-width: 1px;
@@ -88,7 +121,9 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgb(50, 20, 185);
+  color: rgb(113, 12, 133);
+  font-size: large;
+  font-family: 'Dressed', sans-serif;
   grid-row: 1;
   height: 100%;
   width: 100%;
@@ -100,7 +135,7 @@ button {
 #logoutBtn {
   grid-column: 2/3;
 }
-#forYouBtn {
+#watchListBtn {
   grid-column: 3/4;
 }
 #genreBtn {
@@ -115,7 +150,8 @@ button {
   position: absolute;
   background-color: #f1f1f1;
   overflow: scroll;
-  max-height: 25vh;
+  max-height: 35vh;
+  width: 35vh;
 }
 .dropdown-content a {
   float: none;
@@ -128,6 +164,34 @@ button {
 }
 .genredropdown:hover a:hover {
   background: orange;
+}
+
+.userdropdown {
+  /* float: left; */
+  /* overflow: hidden; */
+}
+.userdropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  width: 35vh;
+  
+}
+
+.userdropdown-content a {
+  float: none;
+  display: block;
+  height: 5vh;
+  /* padding: 12px 16px; */
+  /* color: black; */
+}
+.userdropdown:hover .userdropdown-content {
+  display: inline-block;
+  
+}
+.userdropdown:hover a:hover {
+  /* background: orange; */
+  background-color: rgba(172, 101, 156, 0.5);
 }
 
 input {
@@ -156,7 +220,7 @@ a {
   text-decoration: none;
 }
 button:hover {
-  background-color: rgba(107, 141, 216, 0.5);
+  background-color: rgba(172, 101, 156, 0.5);
 }
 a:active {
   background-color: rgb(33, 12, 219);

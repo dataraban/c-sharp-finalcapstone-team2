@@ -19,7 +19,8 @@ if(currentToken != null) {
 export default new Vuex.Store({
   state: {
     token: currentToken || '',
-    user: currentUser || {}
+    user: currentUser || {},
+    currentGenreId: 0
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -37,6 +38,15 @@ export default new Vuex.Store({
       state.token = '';
       state.user = {};
       axios.defaults.headers.common = {};
-    }
+    },
+    CHANGE_GENRE_ID(state, newGenreId) {
+      state.currentGenreId = newGenreId;
+    },
+    // ADD_PLAYLIST(state, review) {
+    //   state.reviews.unshift(review); working on these for the watch list page
+    // },
+    // ADD_WATCHLIST(state, review) {
+    //   state.reviews.unshift(review);
+    // } 
   }
 })
