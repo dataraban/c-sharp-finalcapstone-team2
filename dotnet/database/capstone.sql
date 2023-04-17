@@ -24,7 +24,29 @@ CREATE TABLE users (
 	CONSTRAINT PK_user PRIMARY KEY (user_id)
 )
 
---populate default data
+CREATE TABLE genres (
+	genre_id int IDENTITY(100,10) NOT NULL,
+	genre_name varchar(50) NOT NULL,
+	CONSTRAINT PK_genre PRIMARY KEY (genre_id)
+)
+CREATE TABLE user_genre (
+	user_id int NOT NULL,
+	genre_id int NOT NULL
+)
+CREATE TABLE movies (
+	movie_id int IDENTITY (10, 1) NOT NULL,
+	movie_name varchar(50) NOT NULL, 
+	genre_id int NOT NULL
+	CONSTRAINT PK_movie PRIMARY KEY (movie_id)
+)
+CREATE TABLE user_movie (
+	user_id int NOT NULL,
+	movie_id int NOT NULL
+)
+
+
+
+--populate  data
 INSERT INTO users (username, password_hash, salt, user_role) VALUES ('user','Jg45HuwT7PZkfuKTz6IB90CtWY4=','LHxP4Xh7bN0=','user');
 INSERT INTO users (username, password_hash, salt, user_role) VALUES ('admin','YhyGVQ+Ch69n4JMBncM4lNF/i9s=', 'Ar/aB2thQTI=','admin');
 INSERT INTO users (username, password_hash, salt, user_role) VALUES ('Josephina366', 'GkshdfT9W4irkdTTxsEDkf/i6s=', 'Rt+bseWmd0=', 'user');
@@ -40,7 +62,3 @@ INSERT INTO user_movie (user_id, movie_id) VALUES (3, 10);
 
 
 GO
-
-SELECT * from movies
-
-SELECT * from users
