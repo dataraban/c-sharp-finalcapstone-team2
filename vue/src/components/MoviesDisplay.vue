@@ -2,7 +2,7 @@
   <div>
     <div class="card card-flip" v-for="movie in movies" :key="movie.id" style="width: 15rem;">
       <!-- card front -->
-    <li class="text-center">
+    <div class="text-center">
 
         <img
           v-bind:src="'https://image.tmdb.org/t/p/w185' + movie.poster_path"
@@ -11,7 +11,7 @@
 
       <h5 class="card-body text-center">{{ movie.original_title }}        
       </h5>
-    </li>
+    </div>
     <!-- end card front -->
     
     <!-- card back -->
