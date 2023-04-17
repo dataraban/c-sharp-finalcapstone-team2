@@ -2,7 +2,7 @@
   <div>
     <div class="card card-flip" v-for="movie in movies" :key="movie.id" style="width: 15rem;">
       <!-- card front -->
-    <div class="text-center">
+    <div >
 
         <img
           v-bind:src="'https://image.tmdb.org/t/p/w185' + movie.poster_path"
@@ -56,6 +56,7 @@ overflow-wrap: break-word;}
 
 .card{
   margin: 1%;
+  text-align: center;
 }
 
 .card-flip > div {
@@ -78,12 +79,11 @@ overflow-wrap: break-word;}
   position: absolute;
   top: 0;
 }
-
+.card-text{text-align: start;}
 .flip-card-inner {
   position: relative;
   width: 100%;
   height: 100%;
-  text-align: center;
   transition: transform 0.8s;
   transform-style: preserve-3d;
 }
