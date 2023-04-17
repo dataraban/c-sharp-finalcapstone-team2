@@ -1,5 +1,5 @@
 <template>
-  <div id="nav">
+  <div id="nav" class="sticky-top">
     <router-link class="home" v-bind:to="{ name: 'home' }">
       <button id="homeBtn">Home</button></router-link
     >

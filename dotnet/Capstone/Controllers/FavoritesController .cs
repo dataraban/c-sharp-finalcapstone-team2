@@ -13,10 +13,13 @@ namespace Capstone.Controllers
     public class FavoritesController : ControllerBase
     {
         private readonly IFavoritesDao favoritesDao;
+        private int loggedInUser;
 
         public FavoritesController(IFavoritesDao _favoritesDao)
         {
             favoritesDao = _favoritesDao;
+            this.loggedInUser = Convert.ToInt32(User.FindFirst("sub")?.Value);
+            Console.WriteLine(loggedInUser);
         }
 
         [HttpGet()]
