@@ -165,11 +165,11 @@ button {
 .genredropdown:hover a:hover {
   background: orange;
 }
-
+/* 
 .userdropdown {
-  /* float: left; */
-  /* overflow: hidden; */
-}
+   float: left; 
+   overflow: hidden; 
+} */
 .userdropdown-content {
   display: none;
   position: absolute;
@@ -201,6 +201,7 @@ input {
   display: flex;
   text-align: center;
   color: rgb(50, 20, 185);
+  width: 100%;
 }
 #userBtn {
   grid-column: 6/7;
