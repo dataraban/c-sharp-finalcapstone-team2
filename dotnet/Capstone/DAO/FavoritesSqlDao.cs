@@ -25,23 +25,21 @@ namespace Capstone.DAO
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-
                     //get a list of User's Favorite movies from the user_movie table
 
-                    SqlCommand cmd = new SqlCommand("SELECT user_id, movie_id FROM user_movie WHERE user_id = @user_id", conn);
+                    SqlCommand cmd = new SqlCommand("SELECT user_id, movie_id FROM user_movie WHERE user_id = @user_id,", conn);
                     cmd.Parameters.AddWithValue("@user_id", userId);
+                    
                     SqlDataReader reader = cmd.ExecuteReader();
 
                     while (reader.Read())
                     {
-                        //add stuff to list
                         UserMovie userMovie = new UserMovie();
 
                         userMovie.UserId = Convert.ToInt32(reader["user_id"]);
                         userMovie.MovieId = Convert.ToInt32(reader["movie_id"]);
 
-                        userMovies.Add(userMovie);
-
+                        userMovies.Add(userMovie);//add stuff to list
                     }
                     return userMovies; 
                 }
@@ -70,9 +68,9 @@ namespace Capstone.DAO
                 }
                 return userMovie;
             }
-            catch (Exception ex)
+            catch (SqlException)
             {
-                throw new NotImplementedException();
+                throw;
             }
             
         }
@@ -103,9 +101,9 @@ namespace Capstone.DAO
                     return userGenres; 
                 }
             }
-            catch(Exception ex)
+            catch(SqlException)
                 {
-                throw new NotImplementedException();
+                throw ;
             }
         }
 
@@ -127,9 +125,9 @@ namespace Capstone.DAO
                 }
                 return userGenre; 
             }
-            catch (Exception ex)
+            catch (SqlException)
             {
-                throw new NotImplementedException();
+                throw;
             }
         }
     }

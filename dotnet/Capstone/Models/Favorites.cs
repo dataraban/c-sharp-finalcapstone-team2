@@ -8,6 +8,7 @@ namespace Capstone.Models
         public int UserId { get; set; }
         public int MovieId { get; set; }
 
+        public UserMovie() { }
         public UserMovie(int userId, int movieId)
         {
             UserId = userId;
@@ -24,15 +25,20 @@ namespace Capstone.Models
             return false;
         }
 
-        public List<UserMovie> GetFavoriteMovies(int userId) {
+        public IList<UserMovie> GetFavoriteMovies(int userId, int movieId) {
             int dbUserId = 1;
-            List<UserMovie> favMovies = new List<UserMovie>();
+            IList<UserMovie> userMovies = new List<UserMovie>();
 
             if (userId == dbUserId) {
-                return favMovies;
+                return userMovies;
             }
             return null;
         }
+
+        //public List<UserMovie> UpdateFavoriteMovies(int userId) {
+        //    List<UserMovie> favMovies = new List<UserMovie>();
+        //    if
+        //}
 
     }
 
@@ -41,6 +47,7 @@ namespace Capstone.Models
         public int UserId { get; set; }
         public int GenreId { get; set; }
 
+        public UserGenre() { }
         public UserGenre(int userId, int genreId) { 
             UserId = userId;
             GenreId = genreId; 
@@ -55,9 +62,9 @@ namespace Capstone.Models
             }
             return false;
         }
-        public List<UserGenre> GetFavoriteGenres(int userId)
+        public IList<UserGenre> GetFavoriteGenres(int userId)
         {
-            List<UserGenre> favGenre = new List<UserGenre>();
+            IList<UserGenre> favGenre = new List<UserGenre>();
             int dbUserId = 1;
 
             if (userId == dbUserId)
@@ -65,6 +72,17 @@ namespace Capstone.Models
                 return favGenre;
             }
             return null;
+        }
+        public UserGenre UpdateFavoriteGenres(int userId) {
+
+            //UserGenre oldGenreList = FindReservationById(userId);
+            //    if (old != null)
+            //    {                    updated.userId = old.userId;
+            //        GenreId.Remove(old);
+            //    GenreId.Add(updated);
+            //        return updated;
+            //    }
+                return null;
         }
     }
 
