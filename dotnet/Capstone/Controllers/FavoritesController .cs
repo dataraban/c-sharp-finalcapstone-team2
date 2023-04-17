@@ -25,7 +25,7 @@ namespace Capstone.Controllers
         [HttpGet()]
         public ActionResult<UserMovie> GetMovie(int userId)
         {
-            List<UserMovie> favMovie = favoritesDao.GetFavoriteMovies(userId);
+            IList<UserMovie> favMovie = favoritesDao.GetFavoriteMovies(userId);
             if (favMovie != null)
             {
                 return Ok(favMovie);
@@ -40,7 +40,7 @@ namespace Capstone.Controllers
         [HttpGet()]
         public ActionResult<UserGenre> GetGenre(int userId)
         {
-            List<UserGenre> favGenre = favoritesDao.GetFavoriteGenres(userId);
+            IList<UserGenre> favGenre = favoritesDao.GetFavoriteGenres(userId);
             if (favGenre != null)
             {
                 return Ok(favGenre);
