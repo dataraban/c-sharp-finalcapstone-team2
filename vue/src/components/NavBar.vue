@@ -121,8 +121,8 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgb(113, 12, 133);
-  font-size: large;
+  color: rgb(17, 17, 17);
+  font-size: x-large;
   font-family: 'Dressed', sans-serif;
   grid-row: 1;
   height: 100%;
@@ -212,7 +212,7 @@ img.user_icon {
   margin-left: 10px;
   width: 50px;
   height: 50px;
-  background: rgb(12, 79, 223);
+  background: rgb(166, 12, 212);
   border-radius: 60%;
   padding: 5px;
 }
