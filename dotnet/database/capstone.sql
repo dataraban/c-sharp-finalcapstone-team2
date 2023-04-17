@@ -48,6 +48,10 @@ CREATE TABLE user_movie (
 --populate  data
 INSERT INTO users (username, password_hash, salt, user_role) VALUES ('user','Jg45HuwT7PZkfuKTz6IB90CtWY4=','LHxP4Xh7bN0=','user');
 INSERT INTO users (username, password_hash, salt, user_role) VALUES ('admin','YhyGVQ+Ch69n4JMBncM4lNF/i9s=', 'Ar/aB2thQTI=','admin');
+INSERT INTO users (username, password_hash, salt, user_role) VALUES ('Josephina366', 'GkshdfT9W4irkdTTxsEDkf/i6s=', 'Rt+bseWmd0=', 'user');
+INSERT INTO users (username, password_hash, salt, user_role) VALUES ('Tamagotchi2000', 'Mdssdf43knirkdTTxsED/4rjf=', 'Bzt+bHmdksd=3', 'user');
+INSERT INTO users (username, password_hash, salt, user_role) VALUES ('Cleveland97', 'Adjisd83jdkscmTxs/ahd46s=', 'Fjgbrijtjf=4/3=', 'user');
+
 
 --associative tables testing data
 INSERT INTO genres (genre_name) VALUES ('example genre');
@@ -57,3 +61,7 @@ INSERT INTO user_movie (user_id, movie_id) VALUES (3, 10);
 
 
 GO
+
+SELECT * from movies
+
+SELECT * from users
