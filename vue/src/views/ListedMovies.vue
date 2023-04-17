@@ -28,7 +28,7 @@ export default {
     },
   },
   created() {
-    const movieList = dataFetchingPlaceHolder(this.listId);
+    const movieList = getFavoriteMovies(this.listId);
     movieList.forEach((movie) => {
       this.getMovieFromList(movie);
     });
