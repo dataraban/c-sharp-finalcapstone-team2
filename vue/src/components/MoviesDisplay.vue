@@ -2,16 +2,16 @@
   <div>
     <div class="card card-flip" v-for="movie in movies" :key="movie.id" style="width: 15rem;">
       <!-- card front -->
-    <li class="text-center">
+    <div class="text-center">
 
         <img
           v-bind:src="'https://image.tmdb.org/t/p/w185' + movie.poster_path"
         />
       <!-- </router-link> -->
 
-      <h5 class="card-body text-center">{{ movie.original_title }}        
+      <h5 class="card-body">{{ movie.original_title }}        
       </h5>
-    </li>
+    </div>
     <!-- end card front -->
     
     <!-- card back -->
@@ -47,14 +47,15 @@ div {
   padding-top: 2vh;
   justify-content: center;
 }
+
 li{
-text-align: start;}
+text-align: center;}
 
 p{
 overflow-wrap: break-word;}
 
 .card{
-  margin: 10px;
+  margin: 1%;
 }
 
 .card-flip > div {

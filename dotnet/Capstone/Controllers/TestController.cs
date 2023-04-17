@@ -21,6 +21,8 @@ namespace Capstone.Controllers
         public IActionResult Get()
         {
             string query = @"select movie_name, genre_id from movies";
+            //Make list instead of data table. Loop through results of SQL query.
+            //ParkSqlDao in DaoLecture
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("Project");
             SqlDataReader myReader;
