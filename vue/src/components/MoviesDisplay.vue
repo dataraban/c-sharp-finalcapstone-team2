@@ -2,7 +2,7 @@
   <div>
     <div class="card card-flip" v-for="movie in movies" :key="movie.id" style="width: 15rem;">
       <!-- card front -->
-    <li class="card-front text-center">
+    <li class="text-center">
 
         <img
           v-bind:src="'https://image.tmdb.org/t/p/w185' + movie.poster_path"
@@ -76,6 +76,15 @@ overflow-wrap: break-word;}
   transform: rotateY(180deg);
   position: absolute;
   top: 0;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
 }
 
 .card-flip:hover .card-front {
