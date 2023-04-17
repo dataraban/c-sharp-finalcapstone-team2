@@ -1,16 +1,32 @@
 <template>
   <div>
-    <li v-for="movie in movies" :key="movie.id">
-      <router-link
-        v-bind:to="{ name: 'movie-details', params: { id: movie.id } }"
-      >
+    <div class="card card-flip" v-for="movie in movies" :key="movie.id" style="width: 15rem;">
+      <!-- card front -->
+    <li class="text-center">
+
         <img
           v-bind:src="'https://image.tmdb.org/t/p/w185' + movie.poster_path"
         />
-      </router-link>
+      <!-- </router-link> -->
 
-      <p>{{ movie.original_title }}</p>
+      <h5 class="card-body text-center">{{ movie.original_title }}        
+      </h5>
     </li>
+    <!-- end card front -->
+    
+    <!-- card back -->
+    <div class="card-back">
+        <p class="card-text">
+      {{ movie.overview }}
+      <router-link class="text-center"
+        v-bind:to="{ name: 'movie-details', params: { id: movie.id } }"
+      >
+      <button class="primary-button">Movie Details</button>
+      </router-link>
+    </p>
+    </div>
+    <!-- end card back -->
+    </div>
   </div>
 </template>
 
@@ -36,4 +52,50 @@ text-align: start;}
 
 p{
 overflow-wrap: break-word;}
+
+.card{
+  margin: 10px;
+}
+
+.card-flip > div {
+  backface-visibility: hidden;
+  transition: transform 300ms;
+  transition-timing-function: linear;
+  perspective: 1000px;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  display: flex;
+}
+
+.card-front {
+  transform: rotateY(0deg);
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  position: absolute;
+  top: 0;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.card-flip:hover .card-front {
+  transform: rotateY(-180deg);
+}
+  
+.card-flip:hover .card-back {
+  background-color: dodgerblue;
+  color: black;
+  transform: rotateY(0deg);
+
+}
 </style>
+
