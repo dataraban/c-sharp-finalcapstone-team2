@@ -169,9 +169,7 @@ namespace Capstone.DAO
                 Username = Convert.ToString(reader["username"]),
                 PasswordHash = Convert.ToString(reader["password_hash"]),
                 Salt = Convert.ToString(reader["salt"]),
-                Role = Convert.ToString(reader["user_role"]),
-                FirstName = Convert.ToString(reader["firstname"]),
-                age = Convert.ToInt32(reader["age"])
+                Role = Convert.ToString(reader["user_role"])
             };
 
             return u;
