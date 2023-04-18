@@ -44,9 +44,23 @@ export default {
   width: 250px;
   height: 550px;
   margin: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  
+  
 }
 
 .card .movie-title {
   font-size: 1.5rem;
+  font-family: fantasy;
+}
+.card .movie-details{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  
 }
 </style>

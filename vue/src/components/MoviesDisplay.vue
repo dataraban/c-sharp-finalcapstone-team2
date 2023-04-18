@@ -67,7 +67,7 @@ overflow-wrap: break-word;}
   width: 100%;
   height: 100%;
   margin: 0;
-  display: flex;
+  
 }
 
 .card-front {
@@ -78,6 +78,12 @@ overflow-wrap: break-word;}
   transform: rotateY(180deg);
   position: absolute;
   top: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  padding-right: 15%;
+  padding-left: 15%
 }
 .card-text{text-align: start;}
 .flip-card-inner {
@@ -90,10 +96,11 @@ overflow-wrap: break-word;}
 
 .card-flip:hover .card-front {
   transform: rotateY(-180deg);
+  font-family: fantasy;
 }
   
 .card-flip:hover .card-back {
-  background-color: dodgerblue;
+  background-color: rgb(224, 137, 241);
   color: black;
   transform: rotateY(0deg);
 
