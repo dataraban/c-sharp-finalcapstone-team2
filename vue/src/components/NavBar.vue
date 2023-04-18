@@ -118,12 +118,12 @@ button {
 }
 .genredropdown {
   float: left;
-  overflow: hidden;
+
 }
 .dropdown-content {
   display: none;
   position: absolute;
-  overflow: scroll;
+  overflow: auto;
   max-height: 35vh;
   width: 35vh;
   background-color: plum;
