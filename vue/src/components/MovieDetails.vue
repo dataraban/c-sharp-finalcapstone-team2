@@ -55,6 +55,9 @@ export default {
   justify-items: center;
   margin: auto;
   text-align: center;
-}
+  font-family:Verdana, Geneva, Tahoma, sans-serif; 
+ 
+  padding-right: 25%;
+  padding-left: 25%;  }
 
 </style>

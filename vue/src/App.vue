@@ -4,11 +4,13 @@
       <nav-bar class="nav"></nav-bar>
     </div>
     <router-view />
+
   </div>
 </template>
 
 <script>
 import NavBar from "./components/NavBar.vue";
+
 
 export default {
   name: 'App',
@@ -48,4 +50,6 @@ export default {
 .nav {
   background: none;
 }
+
+
 </style>
