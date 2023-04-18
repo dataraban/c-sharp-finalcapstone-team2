@@ -45,7 +45,9 @@
         </div>
       </div>
     </div>
+    <div class="insert-comment">
     <label class="comments">Comments:</label>
+    </div>
     <div class="text-center">
       <textarea class="commentArea" name="comments" rows="4" cols="50">
       </textarea>
@@ -87,6 +89,7 @@ export default {
   justify-content: center;
 }
 #profileHeading {
+  padding-top: 2%;
   display: flex;
   justify-content: center;
   font-size: 30px;
@@ -103,33 +106,42 @@ img {
   height: 100%;
   border-radius: 50%;
 }
-
 #profileHeader {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-top: 2%;
+  padding-bottom: 2%;
 }
 .infos {
+  padding-top: 10px;
+  padding-left: 10px;
   margin-bottom: 30px;
 }
 #basicInfo {
-  border: 5px solid green;
   margin-left: 10px;
   background: white;
    width: 500px;
+   border-radius: 10px;
 }
 #reviews {
   width: 750px;
   margin: auto;
+  padding-bottom: 2%;
 }
-.comments {
+.insert-comment {
+  background-color: white;
+  border-radius: 10px;
+  width: 750px;
   text-align: center;
-  margin-top: 20px;
-  padding-top: 20px;
+  display: flex;
   justify-content: center;
+  margin: auto;
 }
 .commentArea {
   width: 750px;
+  padding-bottom: 2%;
+  border-radius: 10px;
 }
 .reviews {
   display: flex;
@@ -139,6 +151,7 @@ img {
 .friend-list {
   width: 750px;
   margin: auto;
+  padding-bottom: 2%;
 }
 #comment-section {
   width: 750px;
