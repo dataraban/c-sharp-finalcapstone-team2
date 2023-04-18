@@ -1,16 +1,19 @@
 <template>
   <div>
+
     <div class="card card-flip" v-for="movie in movies" :key="movie.id" style="width: 15rem;">
       <!-- card front -->
     <div >
 
         <img
-          v-bind:src="'https://image.tmdb.org/t/p/w185' + movie.poster_path"
+          :src="'https://image.tmdb.org/t/p/w185' + movie.poster_path" @error="$event.target.src=getImgUrl()"
         />
       <!-- </router-link> -->
 
-      <h5 class="card-body">{{ movie.original_title }}        
+      <h5 class="card-body">{{ getMovieTitle(movie) }}        
       </h5>
+      <!-- <h6 class="card-body">{{ movie.release_date }}        
+      </h6> -->
     </div>
     <!-- end card front -->
     
@@ -36,6 +39,23 @@ export default {
   props: {
     movies: [],
   },
+  methods: {
+    getImgUrl() {
+      return require('../assets/noposter.jpg')
+    },
+    getMovieTitle(movie){
+      if(movie.title !== undefined){
+        return movie.title;
+      }
+      else if(movie.name !== undefined){
+        return movie.name;
+      }
+      else if(movie.original_name !== undefined){
+        return movie.original_name;
+      }
+      return movie.title ? movie.title : "Title Not Found";
+    }
+  }
 };
 </script>
 
