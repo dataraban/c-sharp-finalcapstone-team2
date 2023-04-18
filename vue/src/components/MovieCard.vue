@@ -2,11 +2,13 @@
   <div class="card">
     <h2 class="movie-title">{{ movie.title }}</h2>
     <!--Get movie image -->
+    <div class="movie-deets">
     <router-link
       v-bind:to="{ name: 'movie-details', params: { id: movie.id } }"
     >
       {{ movie.title }}
     </router-link>
+    </div>
     <!-- <img v-if="book.isbn" v-bind:src="'http://covers.openlibrary.org/b/isbn/' + book.isbn + '-M.jpg'" />
     <h3 class="book-author">{{ book.author }}</h3>
     <div class="button-container" v-if="! enableAdd">
@@ -47,20 +49,22 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  
-  
+   
 }
 
 .card .movie-title {
   font-size: 1.5rem;
   font-family: fantasy;
 }
-.card .movie-details{
+.card .movie-deets{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-content: center;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: fantasy;
+  overflow: scroll;
+  box-sizing: border-box;
   
 }
+
 </style>
