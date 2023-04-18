@@ -56,6 +56,6 @@ h2{
   text-align: center;
   font-family: fantasy;
   padding-right: 25%;
-  padding-left: 25%;  
+  padding-left: 25%;
 }
 </style>
