@@ -147,7 +147,6 @@ button {
   justify-content: center;
   background-color: plum;
 }
-
 .genredropdown:hover .dropdown-content {
   display: inline-block;
 }
