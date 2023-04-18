@@ -15,36 +15,6 @@ namespace Capstone.Models
             UserId = userId;
             MovieId = movieId;
         }
-
-        //public bool IsValid(int userId) {
-        //    int dbUserId = 1;//logic for validating a user id exists
-
-        //    if (userId == dbUserId)
-        //    { //compare to db list of userIds 
-        //        return true;
-        //    }
-        //    return false;
-        //}
-
-        public IList<UserMovie> GetFavoriteMovies(int userId)
-        {
-            IList<UserMovie> userMovies = new List<UserMovie>();
-
-            if (userId == MovieId)
-            {
-                //userMovies.Add(UserMovie.MovieId);
-
-                return userMovies;
-            }
-            return null;
-        }
-
-
-        //public List<UserMovie> UpdateFavoriteMovies(int userId) {
-        //    List<UserMovie> userMovie = new List<UserMovie>();
-        //    if
-        //}
-
     }
 
     public class UserGenre
@@ -60,39 +30,6 @@ namespace Capstone.Models
 
         public UserGenre()
         {
-        }
-
-        //public bool IsValid(int userId)
-        //{
-        //    int dbUserId = 1; //logic for validating a user id exists
-
-        //    if (userId == dbUserId)
-        //    { //compare to db list of userIds 
-        //        return true;
-        //    }
-        //    return false;
-        //}
-        public IList<UserGenre> GetFavoriteGenres(int userId)
-        {
-            IList<UserGenre> userGenre = new List<UserGenre>();
-            if (userId == GenreId)
-            {
-                //userGenre.Add(GenreId);
-                return userGenre;
-            }
-            return null;
-        }
-        public UserGenre UpdateFavoriteGenres(int userId, int genreId)
-        {
-
-            //UserGenre oldGenreList = FindGenreById(userId);
-            //    if (genreId == genreId)
-            //    {                    updated.genreId = old.genreId;
-            //        GenreId.Remove(oldGenreId);
-            //    GenreId.Add(updated);
-            //       return updated;
-            //    }
-            return null;
         }
     }
 
