@@ -2,11 +2,13 @@
   <div id="app">
     <nav-bar class="nav"></nav-bar>
     <router-view />
+
   </div>
 </template>
 
 <script>
 import NavBar from "./components/NavBar.vue";
+
 
 export default {
   components: { NavBar },
@@ -39,5 +41,6 @@ export default {
   background: none;
 
 }
+
 
 </style>
