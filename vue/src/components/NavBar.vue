@@ -38,13 +38,16 @@
       </div>
     </div>
 
-    <search-bar class="search">Search:</search-bar>
+    <!-- <search-bar class="search">Search:</search-bar> -->
+<!--     
     <input
       class="filter"
       type="text"
       v-model="filteredData"
       placeholder="Search Here"
-    />
+    /> -->
+    
+
     <div class="userdropdown">
       <router-link v-bind:to="{ name: 'user-profile' }">
         <button id="userBtn">
@@ -76,10 +79,10 @@
 </template>
 
 <script>
-import SearchBar from "./SearchBar.vue";
+// import SearchBar from "./SearchBar.vue";
 import MoviesService from "../services/MoviesService";
 export default {
-  components: { SearchBar },
+  // components: { SearchBar },
   data() {
     return {
       genres: [],
@@ -108,7 +111,7 @@ export default {
   display: grid;
   width: 100%;
   height: 100%;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   grid-template-rows: 2, 1fr;
   padding: 15px;
   background-image: url("https://static.vecteezy.com/system/resources/previews/008/630/206/original/groovy-pattern-groovy-background-camo-pattern-free-vector.jpg");
@@ -197,14 +200,14 @@ button {
 input {
   border: none;
   grid-row: 1;
-  grid-column: 5/6;
+  /* grid-column: 5/6; */
   display: flex;
   text-align: center;
   color: rgb(50, 20, 185);
   width: 100%;
 }
 #userBtn {
-  grid-column: 6/7;
+  grid-column: 5/5;
 }
 
 img.user_icon {
