@@ -42,6 +42,11 @@ CREATE TABLE user_friends (
 	user_id2 int NOT NULL,
 )
 
+INSERT INTO user_friends (user_id1, user_id2) VALUES ('3', '4')
+INSERT INTO user_friends (user_id1, user_id2) VALUES ('3', '1')
+INSERT INTO user_friends (user_id1, user_id2) VALUES ('3', '5')
+
+
 
 --populate  data
 INSERT INTO users (username, password_hash, salt, user_role) VALUES ('user','Jg45HuwT7PZkfuKTz6IB90CtWY4=','LHxP4Xh7bN0=','user');
@@ -57,3 +62,7 @@ INSERT INTO user_movie (user_id, movie_id) VALUES (3, 10);
 
 
 GO
+
+SELECT * from user_friends
+SELECT * from users
+SELECT * from user_friends JOIN users ON users.user_id = user_id1 WHERE username = 'Josephina366';
