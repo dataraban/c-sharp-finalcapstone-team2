@@ -7,8 +7,8 @@ namespace Capstone.DAO
     {
         User GetUser(string username);
         User AddUser(string username, string password, string role);
-        //User GetAllUsers(string username);
         List<int> ViewUserIds();
         List<string> ViewUsers();
+        List<string> ViewFriends();
     }
 }
