@@ -20,7 +20,10 @@ export default {
      created() {   
        //console.log(this.$route.params.id) 
         MoviesService.getMovieByMulti(this.$route.params.keyword).then((response) => {
-          this.moviesBySearch = response.data.results;        
+          this.moviesBySearch = response.data.results;
+          this.moviesBySearch = this.moviesBySearch.filter((movie) => {
+            return movie.title !== undefined
+          })        
         // this.movieIds = response.data.results;
         
         // this.movieIds.id.forEach((movieId) => {
@@ -30,7 +33,7 @@ export default {
         // })
         
         });
-        console.log(this.$route.params.keyword);
+        // console.log(this.$route.params.keyword);
     },
   components: { MoviesDisplay },
 }
