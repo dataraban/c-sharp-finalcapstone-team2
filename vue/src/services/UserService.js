@@ -6,7 +6,7 @@ export default {
         return axios.post('/userFavorites', user)
     },
     ViewUsers() {
-        return axios.get('api/User');
+        return axios.get('/friendslist');
     }
 
 }
