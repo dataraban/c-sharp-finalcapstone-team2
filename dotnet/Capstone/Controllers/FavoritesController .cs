@@ -25,10 +25,10 @@ namespace Capstone.Controllers
         [HttpGet()]
         public ActionResult<UserMovie> GetMovie(int userId)
         {
-            IList<UserMovie> favMovie = favoritesDao.GetFavoriteMovies(userId);
-            if (favMovie != null)
+            IList<UserMovie> userMovie = favoritesDao.GetFavoriteMovies(userId);
+            if (userMovie != null)
             {
-                return Ok(favMovie);
+                return Ok(userMovie);
             }
             else
             {
@@ -40,10 +40,10 @@ namespace Capstone.Controllers
         [HttpGet()]
         public ActionResult<UserGenre> GetGenre(int userId)
         {
-            IList<UserGenre> favGenre = favoritesDao.GetFavoriteGenres(userId);
-            if (favGenre != null)
+            IList<UserGenre> userGenre = favoritesDao.GetFavoriteGenres(userId);
+            if (userGenre != null)
             {
-                return Ok(favGenre);
+                return Ok(userGenre);
             }
             else
             {
@@ -51,7 +51,7 @@ namespace Capstone.Controllers
             }
         }
 
-        [HttpPost("/userFavorites/:movies")]//is this the right route? Please check
+        [HttpPost("/userGenre/{userId}")]//is this the right route? Please check
         public IActionResult AddUserMovie(UserMovie userMovie)
         {
             //IActionResult result;
@@ -61,13 +61,13 @@ namespace Capstone.Controllers
             //throw new NotImplementedException();
         }
 
-        [HttpPost("/userFavorites/:genres")]//is this the right route? Please check
+        [HttpPost("/userMovie/{userId}")]//is this the right route? Please check
         public IActionResult AddUserGenre(UserGenre userGenre)
         {
             //IActionResult result;
 
             UserGenre added = favoritesDao.AddFavoriteGenre(userGenre.UserId, userGenre.GenreId);
-            return Created($"/userMovie/{added.GenreId}", added);
+            return Created($"/userGenre/{added.GenreId}", added);
 
             throw new NotImplementedException();
         }
@@ -75,23 +75,23 @@ namespace Capstone.Controllers
         //[HttpPut("{movieId}")]
         //public ActionResult<UserMovie> UpdateFavoriteMovies(int movieId, UserMovie userMovie)
         //{
-        //    UserMovie favToUpdate = favoritesDao.UpdateFavoriteMovies(movieId, userMovie);
-        //    if (favToUpdate == null)
+        //    UserMovie userMovie = favoritesDao.UpdateFavoriteMovies(movieId, userMovie);
+        //    if (userMovie == null)
         //    {
         //        return NotFound();
         //    }
-        //    return Ok(favToUpdate);
+        //    return Ok(userMovie);
         //}
 
         //[HttpPut("{genreId}")]
         //public ActionResult<UserGenre> UpdateFavoriteGenres(int genreId, UserMovie userMovie)
         //{
-        //    UserMovie favToUpdate = favoritesDao.UpdateFavoriteGenres(genreId, userMovie);
+        //    UserMovie userGenre = favoritesDao.UpdateFavoriteGenres(genreId, userGenre);
         //    if (favToUpdate == null)
         //    {
         //        return NotFound();
         //    }
-        //    return Ok(favToUpdate);
+        //    return Ok(userGenre);
         //}
 
     }
