@@ -89,11 +89,11 @@ div {
   top: 0;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  align-content: center;
   padding-right: 15%;
   padding-left: 15%;
 }
+.card-text
+{text-align: start;}
 .flip-card-inner {
   position: relative;
   width: 100%;
