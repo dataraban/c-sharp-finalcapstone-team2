@@ -1,15 +1,17 @@
 <template>
   <div id="app">
     <nav-bar class="nav"></nav-bar>
+    <search-bar-new />
     <router-view />
   </div>
 </template>
 
 <script>
 import NavBar from "./components/NavBar.vue";
+import SearchBarNew from "./components/SearchBarNew.vue";
 
 export default {
-  components: { NavBar },
+  components: { NavBar, SearchBarNew },
 };</script>
 
 <style scoped>
