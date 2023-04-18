@@ -62,11 +62,4 @@ INSERT INTO user_movie (user_id, movie_id) VALUES (3, 10);
 
 
 GO
-<<<<<<< HEAD
 
-SELECT * from user_friends
-SELECT * from users
-SELECT * from user_friends JOIN users ON users.user_id = user_id1 WHERE username = 'Josephina366';
-=======
-select * from user_genre;
->>>>>>> 831c80d04cf53dcdaec7bd4c7d45b4c3c9c3e747

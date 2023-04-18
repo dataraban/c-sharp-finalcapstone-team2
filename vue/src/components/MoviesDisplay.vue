@@ -100,12 +100,11 @@ overflow-wrap: break-word;}
   top: 0;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  align-content: center;
   padding-right: 15%;
   padding-left: 15%
 }
-.card-text{text-align: start;}
+.card-text
+{text-align: start;}
 .flip-card-inner {
   position: relative;
   width: 100%;
@@ -124,10 +123,7 @@ overflow-wrap: break-word;}
   color: black;
   transform: rotateY(0deg);
   overflow: auto;
-  
-  
-  ;
-  
+ 
   
 
 }
