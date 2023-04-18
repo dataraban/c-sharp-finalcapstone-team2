@@ -4,13 +4,6 @@
       <button id="homeBtn">Home</button></router-link
     >
 
-    <router-link
-      class="logout"
-      v-bind:to="{ name: 'logout' }"
-      v-if="$store.state.token != ''"
-      ><button id="logoutBtn">Logout</button></router-link
-    >
-
     <router-link v-bind:to="{ name: 'playlist' }">
       <button id="watchListBtn">Watch List</button></router-link
     >
@@ -27,24 +20,12 @@
         >
           {{ genre.name }}
         </router-link>
-        <!-- <div
-          v-for="genre in genres"
-          :key="genre.id"
-          v-bind:to="{ name: 'genre-id', params: { id: genre.id } }"
-          v-on:click="changeGenre(genre.id)"
-        >
-          {{ genre.name }}
-        </div> -->
       </div>
     </div>
+    <div id="searchBtn">
+      <search-bar class="search"></search-bar>
+    </div>
 
-    <search-bar class="search">Search:</search-bar>
-    <input
-      class="filter"
-      type="text"
-      v-model="filteredData"
-      placeholder="Search Here"
-    />
     <div class="userdropdown">
       <router-link v-bind:to="{ name: 'user-profile' }">
         <button id="userBtn">
@@ -54,29 +35,32 @@
           <img
             class="user_icon"
             src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png"
-          /></button>
-          </router-link>
-          <div class="userdropdown-content">
-            <router-link
-            class="settings"
-            v-bind:to="{ name: 'settings' }"
-            v-if="$store.state.token != ''">
-              <button id="settingsBtn">Settings</button>
-            </router-link>
+          />
+        </button>
+      </router-link>
+      <div class="userdropdown-content">
+        <router-link
+          class="settings"
+          v-bind:to="{ name: 'settings' }"
+          v-if="$store.state.token != ''"
+        >
+          <button id="settingsBtn">Settings</button>
+        </router-link>
 
-            <router-link
-            class="logout"
-            v-bind:to="{ name: 'logout' }"
-            v-if="$store.state.token != ''"
-            >
-            <button id="logoutBtn">Logout</button></router-link>
-          </div>
+        <router-link
+          class="logout"
+          v-bind:to="{ name: 'logout' }"
+          v-if="$store.state.token != ''"
+        >
+          <button id="logoutBtn">Logout</button></router-link
+        >
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import SearchBar from "./SearchBar.vue";
+import SearchBar from "./SearchBarNew.vue";
 import MoviesService from "../services/MoviesService";
 export default {
   components: { SearchBar },
@@ -96,19 +80,19 @@ export default {
       // this.$router.push({name: 'genre-id', params:{id: genreId}})
       this.$router.go();
       console.log(genreId);
-    }
-  }
+    },
+  },
 };
 </script>
 
 
 <style scoped>
-@import url('https://fonts.cdnfonts.com/css/dressed');
+@import url("https://fonts.cdnfonts.com/css/dressed");
 #nav {
   display: grid;
   width: 100%;
   height: 100%;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   grid-template-rows: 2, 1fr;
   padding: 15px;
   background-image: url("https://static.vecteezy.com/system/resources/previews/008/630/206/original/groovy-pattern-groovy-background-camo-pattern-free-vector.jpg");
@@ -123,7 +107,7 @@ button {
   justify-content: center;
   color: rgb(17, 17, 17);
   font-size: x-large;
-  font-family: 'Dressed', sans-serif;
+  font-family: "Dressed", sans-serif;
   grid-row: 1;
   height: 100%;
   width: 100%;
@@ -132,14 +116,12 @@ button {
 #homeBtn {
   grid-column: 1/2;
 }
-#logoutBtn {
+
+#watchListBtn {
   grid-column: 2/3;
 }
-#watchListBtn {
-  grid-column: 3/4;
-}
 #genreBtn {
-  grid-column: 4/5;
+  grid-column: 3/4;
 }
 .genredropdown {
   float: left;
@@ -148,10 +130,10 @@ button {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f1f1f1;
   overflow: scroll;
   max-height: 35vh;
   width: 35vh;
+  background-color: plum;
 }
 .dropdown-content a {
   float: none;
@@ -159,23 +141,22 @@ button {
   padding: 12px 16px;
   color: black;
 }
+#searchBtn {
+  grid-column: 4/5;
+  display: flex;
+  justify-content: center;
+  background-color: plum;
+}
+
 .genredropdown:hover .dropdown-content {
   display: inline-block;
 }
-.genredropdown:hover a:hover {
-  background: orange;
-}
-/* 
-.userdropdown {
-   float: left; 
-   overflow: hidden; 
-} */
+
 .userdropdown-content {
   display: none;
   position: absolute;
   background-color: #f1f1f1;
   width: 35vh;
-  
 }
 
 .userdropdown-content a {
@@ -187,24 +168,10 @@ button {
 }
 .userdropdown:hover .userdropdown-content {
   display: inline-block;
-  
-}
-.userdropdown:hover a:hover {
-  /* background: orange; */
-  background-color: rgba(172, 101, 156, 0.5);
 }
 
-input {
-  border: none;
-  grid-row: 1;
-  grid-column: 5/6;
-  display: flex;
-  text-align: center;
-  color: rgb(50, 20, 185);
-  width: 100%;
-}
 #userBtn {
-  grid-column: 6/7;
+  grid-column: 5/6;
 }
 
 img.user_icon {
@@ -223,7 +190,10 @@ a {
 button:hover {
   background-color: rgba(172, 101, 156, 0.5);
 }
+a:hover {
+  background-color: rgba(172, 101, 156, 0.5);
+}
 a:active {
-  background-color: rgb(33, 12, 219);
+  background-color: hotpink;
 }
 </style>

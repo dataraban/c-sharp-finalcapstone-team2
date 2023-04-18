@@ -10,6 +10,7 @@ import PlayWatchList from '../views/PlayWatchList'
 import UserProfile from '../views/UserProfile'
 import UserSettings from '../views/UserSettings'
 import Genre from '../views/Genre'
+import SearchView from '../views/SearchView'
 
 Vue.use(Router)
 
@@ -95,6 +96,11 @@ const router = new Router({
       meta: {
         requiresAuth: true
       }
+    },
+    {
+      path: '/search/:keyword',
+      name: 'search',
+      component: SearchView
     }
   ]
 })
