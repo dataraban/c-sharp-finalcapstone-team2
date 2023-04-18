@@ -43,10 +43,7 @@ export default {
   justify-content: center;
   align-content: center;
   font-family: fantasy;
-  overflow: scroll;
   box-sizing: border-box;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-
 }
 
 </style>
