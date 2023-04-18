@@ -25,10 +25,16 @@ namespace Capstone.Controllers
         //    return userDao.ViewUserIds();
         //}
 
+        //[HttpGet]
+        //public List<string> ViewUsers()
+        //{
+        //    return userDao.ViewUsers();
+        //}
+
         [HttpGet]
-        public List<string> ViewUsers()
+        public List<string> ViewFriends()
         {
-            return userDao.ViewUsers();
+            return userDao.ViewFriends();
         }
     }
 }
