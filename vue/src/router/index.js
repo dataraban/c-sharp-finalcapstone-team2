@@ -6,7 +6,7 @@ import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
 import MovieDetails from '../views/MovieDetails'
-import PlayWatchList from '../views/PlayWatchList'
+import Favorites from '../views/Favorites'
 import UserProfile from '../views/UserProfile'
 import UserSettings from '../views/UserSettings'
 import Genre from '../views/Genre'
@@ -74,9 +74,9 @@ const router = new Router({
       }
     },
     {
-      path: '/playlist',
-      name: 'playlist',
-      component: PlayWatchList,
+      path: '/favorites',
+      name: 'favorites',
+      component: Favorites,
       meta: {
         requiresAuth: true
       }
