@@ -57,3 +57,4 @@ INSERT INTO user_movie (user_id, movie_id) VALUES (3, 10);
 
 
 GO
+select * from user_genre;

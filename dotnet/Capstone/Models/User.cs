@@ -50,4 +50,11 @@
         public string ConfirmPassword { get; set; }
         public string Role { get; set; }
     }
+
+    public class Favorites
+    {
+        public int UserId { get; set; }
+        public int MovieId { get; set; }
+        public int GenreId { get; set; }
+    }
 }
