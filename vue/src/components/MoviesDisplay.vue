@@ -19,14 +19,16 @@
     
     <!-- card back -->
     <div class="card-back">
-        <p class="card-text">
+      <p class="card-text">
       {{ movie.overview }}
-      <router-link class="text-center"
-        v-bind:to="{ name: 'movie-details', params: { id: movie.id } }"
+      </p>
+      <router-link class="text-center" v-bind:to="{ name: 'movie-details', params: { id: movie.id } }"
       >
-      <button class="primary-button">Movie Details</button>
+      <p><button class="btn btn-primary">Movie Details</button></p>
       </router-link>
-    </p>
+
+    <!-- <button :class="favoriteToggleButtonClass" v-on:click="ToggleFavoriteMovie">Favorite {{ favoriteToggleButtonText }}</button> -->
+    <button type="button" class="btn btn-warning" data-toggle="button" aria-pressed="false" autocomplete="off">Favorite</button>
     </div>
     <!-- end card back -->
     </div>
