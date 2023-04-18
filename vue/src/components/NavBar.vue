@@ -11,7 +11,7 @@
         <router-link
           v-for="genre in genres"
           :key="genre.id"
-          v-bind:to="{ name: 'genre-id', params: { id: genre.id } }"
+          v-bind:to="{ name: 'genre-id', params: { id: genre.id, name: genre.name } }"
           v-on:click.native="changeGenre(genre.id)"
         >
           {{ genre.name }}

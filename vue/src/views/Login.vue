@@ -1,5 +1,6 @@
 <template>
   <div id="login">
+    <img id="logo" src="../assets/logo.png"/>
     <form @submit.prevent="login">
       <div role="alert" v-if="invalidCredentials">
         Invalid username and password!
@@ -168,4 +169,8 @@ button {
   color: rgb(0,0,0);
 }
 .nav{display: none;}
+
+#logo {
+  padding: 50px;
+}
 </style>
