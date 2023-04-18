@@ -19,19 +19,19 @@ namespace Capstone.Controllers
             this.userDao = userDao;
         }
 
-        //[HttpGet]
-        //public List<int> ViewUserIds()
-        //{
-        //    return userDao.ViewUserIds();
-        //}
-
-        //[HttpGet]
-        //public List<string> ViewUsers()
-        //{
-        //    return userDao.ViewUsers();
-        //}
-
         [HttpGet]
+        public List<int> ViewUserIds()
+        {
+            return userDao.ViewUserIds();
+        }
+
+        [HttpGet("/viewusers")]
+        public List<string> ViewUsers()
+        {
+            return userDao.ViewUsers();
+        }
+
+        [HttpGet("/friendslist")]
         public List<string> ViewFriends()
         {
             return userDao.ViewFriends();
