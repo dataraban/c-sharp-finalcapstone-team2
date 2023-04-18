@@ -30,11 +30,5 @@ namespace Capstone.Controllers
         {
             return userDao.ViewUsers();
         }
-
-        [HttpGet("/friendslist")]
-        public List<string> ViewFriends()
-        {
-            return userDao.ViewFriends();
-        }
     }
 }
