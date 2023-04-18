@@ -22,7 +22,7 @@ namespace Capstone.Controllers
             Console.WriteLine(loggedInUser);
         }
 
-        [HttpGet()]
+        [HttpGet("/userMovie/{userId}")]
         public ActionResult<UserMovie> GetMovie(int userId)
         {
             IList<UserMovie> userMovie = favoritesDao.GetFavoriteMovies(userId);
@@ -37,7 +37,7 @@ namespace Capstone.Controllers
 
         }
 
-        [HttpGet()]
+        [HttpGet("/userGenre/{userId}")]
         public ActionResult<UserGenre> GetGenre(int userId)
         {
             IList<UserGenre> userGenre = favoritesDao.GetFavoriteGenres(userId);
@@ -51,7 +51,7 @@ namespace Capstone.Controllers
             }
         }
 
-        [HttpPost("/userGenre/{userId}")]//is this the right route? Please check
+        [HttpPost("/userMovie/{userId}")]//is this the right route? Please check
         public IActionResult AddUserMovie(UserMovie userMovie)
         {
             //IActionResult result;
@@ -61,7 +61,7 @@ namespace Capstone.Controllers
             //throw new NotImplementedException();
         }
 
-        [HttpPost("/userMovie/{userId}")]//is this the right route? Please check
+        [HttpPost("/userGenre/{userId}")]//is this the right route? Please check
         public IActionResult AddUserGenre(UserGenre userGenre)
         {
             //IActionResult result;
