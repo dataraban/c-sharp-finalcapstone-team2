@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 using Capstone.Models;
 using Capstone.Security;
@@ -70,6 +71,96 @@ namespace Capstone.DAO
             return GetUser(username);
         }
 
+        public List<int> ViewUserIds()
+        {
+           // User returnUser = null;
+           List<int> UserIds = new List<int>();
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand("SELECT user_id FROM users", conn);
+                  //  cmd.Parameters.AddWithValue("@username", username);
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        //returnUser = GetUserFromReader(reader);
+                        //Why can't do GetUser from reader?
+                        int UserId = Convert.ToInt32(reader["user_id"]);
+                        UserIds.Add(UserId);
+                    }
+                }
+            }
+            catch (SqlException)
+            {
+                throw;
+            }
+
+            return UserIds;
+        }
+
+        public List<string>ViewUsers()
+        {
+            List<string> Users = new List<string>();
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand("SELECT username FROM users", conn);
+                   
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        string Username = Convert.ToString(reader["username"]);
+                        Users.Add(Username);
+                    }
+                }
+            }
+            catch (SqlException)
+            {
+                throw;
+            }
+
+            return Users;
+        }
+
+        public List<string> ViewFriends()
+        {
+            List<string> friends = new List<string>();
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand("SELECT username from user_friends JOIN users ON users.user_id = user_id1 WHERE username = 'Josephina366'", conn);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        string friend = Convert.ToString(reader["username"]);
+                        friends.Add(friend);
+                    }
+                }
+            }
+            catch (SqlException)
+            {
+                throw;
+            }
+
+            return friends;
+        }
+
         private User GetUserFromReader(SqlDataReader reader)
         {
             User u = new User()
@@ -78,7 +169,7 @@ namespace Capstone.DAO
                 Username = Convert.ToString(reader["username"]),
                 PasswordHash = Convert.ToString(reader["password_hash"]),
                 Salt = Convert.ToString(reader["salt"]),
-                Role = Convert.ToString(reader["user_role"]),
+                Role = Convert.ToString(reader["user_role"])
             };
 
             return u;

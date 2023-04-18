@@ -7,6 +7,9 @@
         public string PasswordHash { get; set; }
         public string Salt { get; set; }
         public string Role { get; set; }
+
+        public string FirstName {  get; set; }
+        public int age { get; set; }
     }
 
     /// <summary>
@@ -46,5 +49,12 @@
         public string Password { get; set; }
         public string ConfirmPassword { get; set; }
         public string Role { get; set; }
+    }
+
+    public class Favorites
+    {
+        public int UserId { get; set; }
+        public int MovieId { get; set; }
+        public int GenreId { get; set; }
     }
 }

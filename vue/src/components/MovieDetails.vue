@@ -15,11 +15,7 @@
     <ul>
       <li v-for="genre in movie.genres" :key="genre.id">{{ genre.name }}</li>
     </ul>
-
-    <!-- <h2 class="book-author">{{ book.author }}</h2>
-    <img v-if="book.isbn" v-bind:src="'http://covers.openlibrary.org/b/isbn/' + book.isbn + '-M.jpg'" />
-    <p>I have {{ book.read ? '' : "not" }} read this book</p> -->
-  </div>
+    </div>
 </template>
 
 <script>
@@ -60,6 +56,6 @@ h2{
   text-align: center;
   font-family: fantasy;
   padding-right: 25%;
-  padding-left: 25%;  }
-
+  padding-left: 25%;  
+}
 </style>

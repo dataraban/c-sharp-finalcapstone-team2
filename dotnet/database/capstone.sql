@@ -20,45 +20,53 @@ CREATE TABLE users (
 	username varchar(50) NOT NULL,
 	password_hash varchar(200) NOT NULL,
 	salt varchar(200) NOT NULL,
-	user_role varchar(50) NOT NULL
+	user_role varchar(50) NOT NULL,
+	firstname varchar(50),
+	age int
 	CONSTRAINT PK_user PRIMARY KEY (user_id)
 )
 
-CREATE TABLE genres (
-	genre_id int IDENTITY(100,10) NOT NULL,
-	genre_name varchar(50) NOT NULL,
-	CONSTRAINT PK_genre PRIMARY KEY (genre_id)
-)
 CREATE TABLE user_genre (
 	user_id int NOT NULL,
 	genre_id int NOT NULL
 )
-CREATE TABLE movies (
-	movie_id int IDENTITY (10, 1) NOT NULL,
-	movie_name varchar(50) NOT NULL, 
-	genre_id int NOT NULL
-	CONSTRAINT PK_movie PRIMARY KEY (movie_id)
-)
+
 CREATE TABLE user_movie (
 	user_id int NOT NULL,
 	movie_id int NOT NULL
 )
+
+CREATE TABLE user_friends (
+	relationship_id int IDENTITY(1,1) NOT NULL,
+	user_id1 int NOT NULL,
+	user_id2 int NOT NULL,
+)
+
+INSERT INTO user_friends (user_id1, user_id2) VALUES ('3', '4')
+INSERT INTO user_friends (user_id1, user_id2) VALUES ('3', '1')
+INSERT INTO user_friends (user_id1, user_id2) VALUES ('3', '5')
 
 
 
 --populate  data
 INSERT INTO users (username, password_hash, salt, user_role) VALUES ('user','Jg45HuwT7PZkfuKTz6IB90CtWY4=','LHxP4Xh7bN0=','user');
 INSERT INTO users (username, password_hash, salt, user_role) VALUES ('admin','YhyGVQ+Ch69n4JMBncM4lNF/i9s=', 'Ar/aB2thQTI=','admin');
-INSERT INTO users (username, password_hash, salt, user_role) VALUES ('Josephina366', 'GkshdfT9W4irkdTTxsEDkf/i6s=', 'Rt+bseWmd0=', 'user');
+INSERT INTO users (username, password_hash, salt, user_role, firstname) VALUES ('Josephina366', 'GkshdfT9W4irkdTTxsEDkf/i6s=', 'Rt+bseWmd0=', 'user', 'Josephina');
 INSERT INTO users (username, password_hash, salt, user_role) VALUES ('Tamagotchi2000', 'Mdssdf43knirkdTTxsED/4rjf=', 'Bzt+bHmdksd=3', 'user');
 INSERT INTO users (username, password_hash, salt, user_role) VALUES ('Cleveland97', 'Adjisd83jdkscmTxs/ahd46s=', 'Fjgbrijtjf=4/3=', 'user');
 
 
 --associative tables testing data
-INSERT INTO genres (genre_name) VALUES ('example genre');
 INSERT INTO user_genre (user_id, genre_id) VALUES (3, 100);
-INSERT INTO movies (movie_name, genre_id) VALUES ('example movie', 100);
 INSERT INTO user_movie (user_id, movie_id) VALUES (3, 10);
 
 
 GO
+<<<<<<< HEAD
+
+SELECT * from user_friends
+SELECT * from users
+SELECT * from user_friends JOIN users ON users.user_id = user_id1 WHERE username = 'Josephina366';
+=======
+select * from user_genre;
+>>>>>>> 831c80d04cf53dcdaec7bd4c7d45b4c3c9c3e747
