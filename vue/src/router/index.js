@@ -60,13 +60,13 @@ const router = new Router({
       }
     },
     {
-      path: '/movie/:id',
+      path: '/movie/:id/',
       name: 'movie-details',
       component: MovieDetails
     },
 
     {
-      path: '/genre/:id',
+      path: '/genre/:id/:name',
       name: 'genre-id',
       component: Genre,
       meta: {

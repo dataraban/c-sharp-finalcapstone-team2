@@ -1,8 +1,8 @@
 <template>
 
   <div>
+    <h1 id="genrename" class="text-center">{{genrename}}</h1>
     <movies-display v-bind:movies="moviesByGenre"/>
-
     </div> 
 </template>
 
@@ -15,11 +15,13 @@ export default {
     data() {
         return {
             moviesByGenre: [],
-            genreId: this.$store.state.currentGenreId
+            genreId: this.$store.state.currentGenreId,
+            genrename: ''
         }
     },
      created() {   
-       //console.log(this.$route.params.id) 
+       //console.log(this.$route.params.id)
+       this.genrename = this.$route.params.name; 
         MoviesService.getMovieByGenre(this.$route.params.id).then((response) => {
         
         this.moviesByGenre = response.data.results;
@@ -32,6 +34,15 @@ export default {
 </script>
 
 <style>
+#genrename {
+  padding-top:30px;
+  display: flex;
+  justify-content: center;
+  font-size: 50px;
+  color: black;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+}
 
 
 </style>
