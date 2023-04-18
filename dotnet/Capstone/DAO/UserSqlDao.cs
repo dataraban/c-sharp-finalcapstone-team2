@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 using Capstone.Models;
 using Capstone.Security;
@@ -68,6 +69,67 @@ namespace Capstone.DAO
             }
 
             return GetUser(username);
+        }
+
+        public List<int> ViewUserIds()
+        {
+           // User returnUser = null;
+           List<int> UserIds = new List<int>();
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand("SELECT user_id FROM users", conn);
+                  //  cmd.Parameters.AddWithValue("@username", username);
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        //returnUser = GetUserFromReader(reader);
+                        //Why can't do GetUser from reader?
+                        int UserId = Convert.ToInt32(reader["user_id"]);
+                        UserIds.Add(UserId);
+                    }
+                }
+            }
+            catch (SqlException)
+            {
+                throw;
+            }
+
+            return UserIds;
+        }
+
+        public List<string>ViewUsers()
+        {
+            List<string> Users = new List<string>();
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand("SELECT username FROM users", conn);
+                   
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        string Username = Convert.ToString(reader["username"]);
+                        Users.Add(Username);
+                    }
+                }
+            }
+            catch (SqlException)
+            {
+                throw;
+            }
+
+            return Users;
         }
 
         private User GetUserFromReader(SqlDataReader reader)

@@ -3,7 +3,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Collections.Generic;
 using Capstone.Models;
+using Capstone.DAO;
 
 namespace Capstone.Controllers
 {
@@ -11,33 +13,68 @@ namespace Capstone.Controllers
     [ApiController]
     public class TestController : ControllerBase
     {
-        private readonly IConfiguration _configuration;
-        public TestController(IConfiguration configuration)
+        private readonly ITestDao dao;
+        public TestController(ITestDao _dao)
         {
-            _configuration = configuration;
+            dao = _dao;
         }
 
-        [HttpGet]
-        public IActionResult Get()
+        [HttpGet()]
+        public ActionResult<Testclass> GetAllTests()
         {
-            string query = @"select movie_name, genre_id from movies";
-            //Make list instead of data table. Loop through results of SQL query.
-            //ParkSqlDao in DaoLecture
-            DataTable table = new DataTable();
-            string sqlDataSource = _configuration.GetConnectionString("Project");
-            SqlDataReader myReader;
-            using(SqlConnection myCon= new SqlConnection(sqlDataSource))
+            IList<Testclass> favMovie = dao.GetAllTests();
+            if (favMovie != null)
             {
-                myCon.Open();
-                using (SqlCommand myCommand = new SqlCommand(query, myCon))
-                {
-                    myReader = myCommand.ExecuteReader();
-                    table.Load(myReader);
-                    myReader.Close();
-                    myCon.Close();
-                }
+                return Ok(favMovie);
             }
-            return new JsonResult(table);
+            else
+            {
+                return NotFound();
+            }
+
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //[HttpGet]
+        //public IList<Testclass> Get()
+        //{
+        //    using (SqlConnection myCon = new SqlConnection(_configuration))
+        //        string query = @"select movie_name, genre_id from movies";
+        //    //Make list instead of data table. Loop through results of SQL query.
+        //    //ParkSqlDao in DaoLecture
+        //    IList<Testclass> samplelist = new List<Testclass>();
+        //    string sqlDataSource = _configuration.GetConnectionString("Project");
+        //    SqlDataReader myReader;
+        //    using(SqlConnection myCon= new SqlConnection(sqlDataSource))
+        //    {
+        //        myCon.Open();
+        //        using (SqlCommand myCommand = new SqlCommand(query, myCon))
+        //        {
+        //            myReader = myCommand.ExecuteReader();
+        //            samplelist.Add(myReader);
+        //            myReader.Close();
+        //            myCon.Close();
+        //        }
+        //    }
+        //    return samplelist;
+        //}
     }
 }
