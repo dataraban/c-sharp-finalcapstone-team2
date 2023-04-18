@@ -49,6 +49,7 @@ export default {
 <style>
 .input-group {
   margin-left: 2vh;
+  max-width: fit-content;
 }
 
 #searchBar {

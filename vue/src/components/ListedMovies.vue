@@ -5,7 +5,7 @@
 </template>
 <script>
 import MoviesService from "../services/MoviesService.js";
-import MoviesDisplay from "../components/MoviesDisplay.vue";
+import MoviesDisplay from "./MoviesDisplay.vue";
 export default {
   name: "listed",
   props: {
