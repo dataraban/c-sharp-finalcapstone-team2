@@ -28,15 +28,21 @@
       </div>
     </div>
     <div id="reviews">
-      <p>Your reviews:</p>
-      <p>This movie was good.</p>
-      <p>This movie was bad.</p>
+      <div class="card text-right">
+        <div class="card-body">
+          <p>Your reviews:</p>
+          <p>This movie was good.</p>
+          <p>This movie was bad.</p>
+        </div>
+      </div>
     </div>
-    <div class="card text-right">
-      <div class="card-body">
-        <p class="card text-right">Select a Friend</p>
-        <p>Friends List:</p>
-        <div v-for="user in users" v-bind:key="user.id">{{ user }}</div>
+    <div class="friend-list">
+      <div class="card text-right">
+        <div class="card-body">
+          <p class="card text-right">Select a Friend</p>
+          <p>Friends List:</p>
+          <div v-for="user in users" v-bind:key="user.id">{{ user }}</div>
+        </div>
       </div>
     </div>
     <label class="comments">Comments:</label>
@@ -44,9 +50,14 @@
       <textarea class="commentArea" name="comments" rows="4" cols="50">
       </textarea>
     </div>
-    <div id="mockComments">
-      <label class="userComment">Name: {{ Name }}</label>
-      <p>Wow, can we be friends?</p>
+    <div id="comment-section">
+      <div class="card text-right">
+        <div class="card-body">
+          <p>Your Feed</p>
+          <label class="card text-right">Name: {{ Name }}</label>
+          <p>Wow, can we be friends?</p>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -75,7 +86,6 @@ export default {
   margin: auto;
   justify-content: center;
 }
-
 #profileHeading {
   display: flex;
   justify-content: center;
@@ -84,16 +94,14 @@ export default {
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: black;
 }
-
 #profilePhoto {
-  height: 345px;
-  width: 225x;
-  border: 1px solid black;
+  height: 250px;
+  width: 250px;
 }
-
 img {
   width: 100%;
   height: 100%;
+  border-radius: 50%;
 }
 
 #profileHeader {
@@ -104,25 +112,22 @@ img {
 .infos {
   margin-bottom: 30px;
 }
-
 #basicInfo {
   border: 5px solid green;
   margin-left: 10px;
+  background: white;
+   width: 500px;
 }
-
 #reviews {
-  border: 5px solid black;
-  margin-top: 10px;
-  padding: 50px;
+  width: 750px;
+  margin: auto;
 }
-
 .comments {
   text-align: center;
   margin-top: 20px;
   padding-top: 20px;
   justify-content: center;
 }
-
 .commentArea {
   width: 750px;
 }
@@ -130,5 +135,13 @@ img {
   display: flex;
   align-content: center;
   justify-content: center;
+}
+.friend-list {
+  width: 750px;
+  margin: auto;
+}
+#comment-section {
+  width: 750px;
+  margin: auto;
 }
 </style>
