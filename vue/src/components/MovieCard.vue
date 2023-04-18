@@ -2,11 +2,13 @@
   <div class="card">
     <h2 class="movie-title">{{ movie.title }}</h2>
     <!--Get movie image -->
+    <div class="movie-deets">
     <router-link
       v-bind:to="{ name: 'movie-details', params: { id: movie.id } }"
     >
       {{ movie.title }}
     </router-link>
+    </div>
   </div>
 </template>
 
@@ -40,6 +42,11 @@ export default {
   flex-wrap: wrap;
   justify-content: center;
   align-content: center;
+  font-family: fantasy;
+  overflow: scroll;
+  box-sizing: border-box;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+
 }
+
 </style>

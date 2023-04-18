@@ -1,4 +1,5 @@
 <template>
+
   <div>
     <movies-display v-bind:movies="moviesByGenre"/>
 

@@ -123,6 +123,12 @@ overflow-wrap: break-word;}
   background-color: rgb(224, 137, 241);
   color: black;
   transform: rotateY(0deg);
+  overflow: auto;
+  
+  
+  ;
+  
+  
 
 }
 </style>
