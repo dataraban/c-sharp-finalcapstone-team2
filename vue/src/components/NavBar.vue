@@ -4,10 +4,6 @@
       <button id="homeBtn">Home</button></router-link
     >
 
-    <router-link v-bind:to="{ name: 'playlist' }">
-      <button id="watchListBtn">Watch List</button></router-link
-    >
-
     <div class="genredropdown">
       <button id="genreBtn" href="#">Genres</button>
 
@@ -92,7 +88,7 @@ export default {
   display: grid;
   width: 100%;
   height: 100%;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 2, 1fr;
   padding: 15px;
   background-image: url("https://static.vecteezy.com/system/resources/previews/008/630/206/original/groovy-pattern-groovy-background-camo-pattern-free-vector.jpg");
@@ -117,11 +113,8 @@ button {
   grid-column: 1/2;
 }
 
-#watchListBtn {
-  grid-column: 2/3;
-}
 #genreBtn {
-  grid-column: 3/4;
+  grid-column: 2/3;
 }
 .genredropdown {
   float: left;
@@ -142,7 +135,7 @@ button {
   color: black;
 }
 #searchBtn {
-  grid-column: 4/5;
+  grid-column: 3/4;
   display: flex;
   justify-content: center;
   background-color: plum;
@@ -170,7 +163,7 @@ button {
 }
 
 #userBtn {
-  grid-column: 5/6;
+  grid-column: 4/5;
 }
 
 img.user_icon {
