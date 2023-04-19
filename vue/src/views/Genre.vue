@@ -2,19 +2,19 @@
 
   <div>
     <h1 id="genrename" class="text-center">{{genrename}}</h1>
-    <movies-display v-bind:movies="moviesByGenre"/>
+    <movies-display-store/>
     </div> 
 </template>
 
 <script>
-import MoviesDisplay from '../components/MoviesDisplay.vue'
+import MoviesDisplayStore from '../components/MoviesDisplayStore.vue'
 import MoviesService from '../services/MoviesService'
 
 export default {
     name: "genre",
     data() {
         return {
-            moviesByGenre: [],
+            // moviesByGenre: [],
             genreId: this.$store.state.currentGenreId,
             genrename: ''
         }
@@ -24,12 +24,13 @@ export default {
        this.genrename = this.$route.params.name; 
         MoviesService.getMovieByGenre(this.$route.params.id).then((response) => {
         
-        this.moviesByGenre = response.data.results;
-        
+        // this.moviesByGenre = response.data.results;
+        this.$store.commit('UPDATE_MOVIES', response.data.results)
+
         
         });
     },
-  components: { MoviesDisplay },
+  components: { MoviesDisplayStore },
 }
 </script>
 
