@@ -27,12 +27,12 @@ export default {
       });
     },
   },
-  created() {
-    const movieList = getFavoriteMovies(this.listId);
-    movieList.forEach((movie) => {
-      this.getMovieFromList(movie);
-    });
-  },
+  // created() {
+  //   const movieList = getFavoriteMovies(this.listId);
+  //   movieList.forEach((movie) => {
+  //     this.getMovieFromList(movie);
+  //   });
+  //},
   components: { MoviesDisplay },
 };
 </script>
