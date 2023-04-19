@@ -10,6 +10,9 @@ export default {
     },
     ViewComment() {
         return axios.get('/commentslist');
+    },
+    AddFavoriteMovie(userId, movieId){
+        return axios.post(`/Favorites/userMovie/${userId}`, {userId,movieId})
     }
 
 }

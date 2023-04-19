@@ -57,9 +57,9 @@ export default {
     },
     ToggleFavoriteStatus(event,movie) {
       this.$store.commit('TOGGLE_FAVORITE', movie);
-      let user = this.$store.state.user;
+      let thisUser = this.$store.state.user.UserId;
       let newFavoriteMovie = movie.id;
-      UserService.favoriteMovie({user, newFavoriteMovie});
+      UserService.AddFavoriteMovie({thisUser, newFavoriteMovie});
 
       //don't touch this garbage  
       const node = event.target.parentNode.parentNode.querySelector("span.toggleMe");

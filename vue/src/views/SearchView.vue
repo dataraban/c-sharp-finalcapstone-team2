@@ -1,12 +1,12 @@
 <template>
   <div>
-    <movies-display v-bind:movies="moviesBySearch"/>
+    <movies-display-store/>
 
     </div> 
 </template>
 
 <script>
-import MoviesDisplay from '../components/MoviesDisplay.vue'
+import MoviesDisplayStore from '../components/MoviesDisplayStore.vue'
 import MoviesService from '../services/MoviesService'
 
 export default {
@@ -23,7 +23,10 @@ export default {
           this.moviesBySearch = response.data.results;
           this.moviesBySearch = this.moviesBySearch.filter((movie) => {
             return movie.title !== undefined
-          })        
+          })
+          this.$store.commit('UPDATE_MOVIES', this.moviesBySearch)
+
+                  
         // this.movieIds = response.data.results;
         
         // this.movieIds.id.forEach((movieId) => {
@@ -35,7 +38,7 @@ export default {
         });
         // console.log(this.$route.params.keyword);
     },
-  components: { MoviesDisplay },
+  components: { MoviesDisplayStore },
 }
 </script>
 
