@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div class="card card-flip" v-for="movie in movies" :key="movie.id" style="width: 15rem;">
+    <div class="card card-flip" :class="FavoriteToggleCardColor(movie)" v-for="movie in movies" :key="movie.id" style="width: 15rem;">
       <!-- card front -->
-    <div >
+    <div>
 
         <img
           :src="'https://image.tmdb.org/t/p/w185' + movie.poster_path" @error="$event.target.src=getImgUrl()"
@@ -27,7 +27,7 @@
       </router-link>
 
     <!-- <button :class="favoriteToggleButtonClass" v-on:click="ToggleFavoriteMovie">Favorite {{ favoriteToggleButtonText }}</button> -->
-    <button type="button" class="btn btn-warning" data-toggle="button" aria-pressed="false" autocomplete="off">Favorite</button>
+    <button type="button" class="btn btn-warning" data-toggle="button" aria-pressed="false" autocomplete="off" v-on:click="ToggleFavoriteStatus(movie)">{{ FavoriteButtonText(movie)}}</button>
     </div>
     <!-- end card back -->
     </div>
@@ -55,6 +55,16 @@ export default {
         return movie.original_name;
       }
       return movie.title ? movie.title : "Title Not Found";
+    },
+    ToggleFavoriteStatus(movie) {
+      movie.favorite = !movie.favorite;
+      
+    },
+    FavoriteToggleCardColor(movie) {
+      return movie.favorite ? "bg-warning" : "bg-light";
+    },
+    FavoriteButtonText(movie){
+      return movie.favorite ? "Unfavorite" : "Favorite";
     }
   }
 };
@@ -118,6 +128,11 @@ div {
 .movie-details {
   display: flex;
   align-content: center;
+}
+
+div.favorite {
+    background-color: gold;
+    text-emphasis: bold;
 }
 
 </style>
