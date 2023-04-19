@@ -91,6 +91,7 @@ div {
   flex-wrap: wrap;
   padding-right: 15%;
   padding-left: 15%;
+  white-space: normal;
 }
 .card-text
 {text-align: start;}
