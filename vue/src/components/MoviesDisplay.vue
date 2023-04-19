@@ -103,7 +103,8 @@ overflow-wrap: break-word;}
   justify-content: center;
   align-content: center;
   padding-right: 15%;
-  padding-left: 15%
+  padding-left: 15%;
+  white-space: normal;
 }
 .card-text{text-align: start;}
 .flip-card-inner {
