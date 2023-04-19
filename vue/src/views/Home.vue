@@ -28,7 +28,10 @@ export default {
   created() {
     MoviesService.listMovies().then((response) => {
       this.movies = response.data.results;
-    });
+      this.movies.forEach((movie) => {
+      movie.favorite = false;
+    })
+    })
   },
   components: { MoviesDisplay }
 };
