@@ -1,9 +1,10 @@
 <template>
   <div>
-    <div class="card card-flip" :class="FavoriteToggleCardColor(movie)" v-for="movie in movies" :key="movie.id" style="width: 15rem;">
+    <div class="card card-flip" v-bind:class="{ 'favorite': movie.favorite }" v-for="movie in $store.state.movies" :key="movie.id" style="width: 15rem;">
       <!-- card front -->
+      
     <div>
-
+      <div><span class="toggleMe"/></div>
         <img
           :src="'https://image.tmdb.org/t/p/w185' + movie.poster_path" @error="$event.target.src=getImgUrl()"
         />
@@ -27,7 +28,7 @@
       </router-link>
 
     <!-- <button :class="favoriteToggleButtonClass" v-on:click="ToggleFavoriteMovie">Favorite {{ favoriteToggleButtonText }}</button> -->
-    <button type="button" class="btn btn-warning" data-toggle="button" aria-pressed="false" autocomplete="off" v-on:click="ToggleFavoriteStatus(movie)">{{ FavoriteButtonText(movie)}}</button>
+    <button type="button" class="btn btn-warning" data-toggle="button" aria-pressed="false" autocomplete="off" v-on:click="ToggleFavoriteStatus($event,movie)">{{ FavoriteButtonText(movie)}}</button>
     </div>
     <!-- end card back -->
     </div>
@@ -35,11 +36,9 @@
 </template>
 
 <script>
+import UserService from "../services/UserService";
 export default {
   name: "movies-display",
-  props: {
-    movies: [],
-  },
   methods: {
     getImgUrl() {
       return require('../assets/noposter.jpg')
@@ -56,9 +55,23 @@ export default {
       }
       return movie.title ? movie.title : "Title Not Found";
     },
-    ToggleFavoriteStatus(movie) {
-      movie.favorite = !movie.favorite;
-      
+    ToggleFavoriteStatus(event,movie) {
+      this.$store.commit('TOGGLE_FAVORITE', movie);
+      let user = this.$store.state.user;
+      let newFavoriteMovie = movie.id;
+      UserService.favoriteMovie({user, newFavoriteMovie});
+
+      //don't touch this garbage  
+      const node = event.target.parentNode.parentNode.querySelector("span.toggleMe");
+      if(movie.favorite === true){
+        // node.innerText = "Favorited";
+        node.parentNode.parentNode.parentNode.style.backgroundColor = "gold";
+      }
+      else {
+        // node.innerText = "";
+        
+        node.parentNode.parentNode.parentNode.style.backgroundColor = "white";
+      }
     },
     FavoriteToggleCardColor(movie) {
       return movie.favorite ? "bg-warning" : "bg-light";
@@ -101,7 +114,6 @@ div {
   flex-wrap: wrap;
   padding-right: 15%;
   padding-left: 15%;
-  white-space: normal;
 }
 .card-text
 {text-align: start;}

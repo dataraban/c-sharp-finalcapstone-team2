@@ -9,7 +9,7 @@ using static System.Collections.Specialized.BitVector32;
 
 namespace Capstone.Controllers
 {
-    [Route("api/[controller]")]
+   [Route("[controller]")]
     [ApiController]
     public class FavoritesController : ControllerBase
     {
@@ -19,11 +19,11 @@ namespace Capstone.Controllers
         public FavoritesController(IFavoritesDao _favoritesDao)
         {
             favoritesDao = _favoritesDao;
-            this.loggedInUser = Convert.ToInt32(User.FindFirst("sub")?.Value);
-            Console.WriteLine(loggedInUser);
+            //this.loggedInUser = Convert.ToInt32(User.FindFirst("sub")?.Value);
+           // Console.WriteLine(loggedInUser);
         }
 
-        [HttpGet("/userMovie/{userId}")]
+        [HttpGet("userMovie/{userId}")]
         public ActionResult<UserMovie> GetMovie(int userId)
         {
             IList<UserMovie> userMovie = favoritesDao.GetFavoriteMovies(userId);
