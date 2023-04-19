@@ -103,7 +103,6 @@ div {
 }
 .card-flip:hover .card-front {
   transform: rotateY(-180deg);
-  font-family: fantasy;
 }
   
 .card-flip:hover .card-back {

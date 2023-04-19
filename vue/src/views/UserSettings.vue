@@ -107,9 +107,11 @@ export default {
 
 <style scoped>
 #header {
+  padding-top: 2%;
   color: plum;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: black;
+  font-family: fantasy;
 }
 #settings {
   display: flex;

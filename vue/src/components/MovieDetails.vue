@@ -43,9 +43,6 @@ export default {
 </script>
 
 <style>
-h2{
-  font-family: fantasy;
-}
 .details {
   display: grid;
   height: 100%;
@@ -54,7 +51,6 @@ h2{
   justify-items: center;
   margin: auto;
   text-align: center;
-  font-family: fantasy;
   padding-right: 25%;
   padding-left: 25%;
 }
