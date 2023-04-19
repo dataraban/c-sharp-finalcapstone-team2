@@ -35,14 +35,12 @@ export default {
 }
 .card .movie-title {
   font-size: 1.5rem;
-  font-family: fantasy;
 }
 .card .movie-details {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-content: center;
-  font-family: fantasy;
   box-sizing: border-box;
 }
 

@@ -5,7 +5,7 @@
         </div>
     </div> -->
   <div id="profilePage">
-    <div id="profileHeading">User Profile</div>
+    <h1 id="profileHeading">User Profile</h1>
     <div id="profileHeader">
       <div id="profilePhoto">
         <img
@@ -92,10 +92,10 @@ export default {
   padding-top: 2%;
   display: flex;
   justify-content: center;
-  font-size: 30px;
   color: plum;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: black;
+  font-family: fantasy;
 }
 #profilePhoto {
   height: 250px;
