@@ -4,17 +4,23 @@
       {{ movie.title }}
     </h2>
     <img v-bind:src="'https://image.tmdb.org/t/p/w185' + movie.poster_path" />
-    <p>Overview: {{ movie.overview }}</p>
+    <p id="summary">Overview: {{ movie.overview }}</p>
+    <div id="homepage">
+      <p v-if="movie.homepage">
+      Homepage: <a :href="movie.homepage">{{ movie.homepage }}</a>
+    </p>
+    </div>
+    <div id="info">
     <p>Release date: {{ movie.release_date }}</p>
     <p>Runtime: {{ movie.runtime }} mins</p>
     <p>Revenue: ${{ movie.revenue.toLocaleString("en-US") }}</p>
-    <p v-if="movie.homepage">
-      Homepage: <a :href="movie.homepage">{{ movie.homepage }}</a>
-    </p>
+    </div>
+    <div id="genres">
     <h4>Genres</h4>
     <ul>
       <li v-for="genre in movie.genres" :key="genre.id">{{ genre.name }}</li>
     </ul>
+    </div>
     </div>
 </template>
 
@@ -44,14 +50,26 @@ export default {
 
 <style>
 .details {
-  display: grid;
-  height: 100%;
-  width: 100%;
-  align-items: center;
-  justify-items: center;
-  margin: auto;
-  text-align: center;
-  padding-right: 25%;
-  padding-left: 25%;
+  height: 100vh;
+  width: 100vw;
+ display: grid;
+
+}
+h2{
+
+padding-top: 1%;
+}
+img{
+
+}
+#info{
+
+}
+#summary{
+
+}
+
+li{
+  list-style: none;
 }
 </style>

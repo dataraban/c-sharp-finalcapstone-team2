@@ -45,7 +45,6 @@ export default {
     rgb(255, 155, 41) 100%
   );
   filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#FF1B6B", endColorstr="#45CAFF", GradientType=1 );
-  
 }
 .nav {
   background: none;

@@ -40,11 +40,18 @@ CREATE TABLE user_friends (
 	relationship_id int IDENTITY(1,1) NOT NULL,
 	user_id1 int NOT NULL,
 	user_id2 int NOT NULL,
+	CONSTRAINT PK_user_friends PRIMARY KEY (relationship_id)
 )
 
-INSERT INTO user_friends (user_id1, user_id2) VALUES ('3', '4')
-INSERT INTO user_friends (user_id1, user_id2) VALUES ('3', '1')
-INSERT INTO user_friends (user_id1, user_id2) VALUES ('3', '5')
+CREATE TABLE user_comments(
+	comment_id int IDENTITY(1,1) NOT NULL,
+	user_author_id int NOT NULL,
+	user_posted_id int NOT NULL,
+	comment_text varchar(MAX) NOT NULL
+	CONSTRAINT PK_user_comments PRIMARY KEY (comment_id)
+
+)
+
 
 
 
@@ -55,6 +62,11 @@ INSERT INTO users (username, password_hash, salt, user_role, firstname) VALUES (
 INSERT INTO users (username, password_hash, salt, user_role) VALUES ('Tamagotchi2000', 'Mdssdf43knirkdTTxsED/4rjf=', 'Bzt+bHmdksd=3', 'user');
 INSERT INTO users (username, password_hash, salt, user_role) VALUES ('Cleveland97', 'Adjisd83jdkscmTxs/ahd46s=', 'Fjgbrijtjf=4/3=', 'user');
 
+INSERT INTO user_friends (user_id1, user_id2) VALUES ('3', '4')
+INSERT INTO user_friends (user_id1, user_id2) VALUES ('3', '1')
+INSERT INTO user_friends (user_id1, user_id2) VALUES ('3', '5')
+
+INSERT INTO user_comments (user_author_id, user_posted_id, comment_text) VALUES (4, 3, 'I love your taste in movies!');
 
 --associative tables testing data
 INSERT INTO user_genre (user_id, genre_id) VALUES (3, 100);
