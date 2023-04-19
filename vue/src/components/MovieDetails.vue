@@ -7,21 +7,21 @@
     <p id="summary">Overview: {{ movie.overview }}</p>
     <div id="homepage">
       <p v-if="movie.homepage">
-      Homepage: <a :href="movie.homepage">{{ movie.homepage }}</a>
-    </p>
+        Homepage: <a :href="movie.homepage">{{ movie.homepage }}</a>
+      </p>
     </div>
     <div id="info">
-    <p>Release date: {{ movie.release_date }}</p>
-    <p>Runtime: {{ movie.runtime }} mins</p>
-    <p>Revenue: ${{ movie.revenue.toLocaleString("en-US") }}</p>
+      <p>Release date: {{ movie.release_date }}</p>
+      <p>Runtime: {{ movie.runtime }} mins</p>
+      <p>Revenue: ${{ movie.revenue.toLocaleString("en-US") }}</p>
     </div>
     <div id="genres">
-    <h4>Genres</h4>
-    <ul>
-      <li v-for="genre in movie.genres" :key="genre.id">{{ genre.name }}</li>
-    </ul>
+      <h4>Genres</h4>
+      <ul>
+        <li v-for="genre in movie.genres" :key="genre.id">{{ genre.name }}</li>
+      </ul>
     </div>
-    </div>
+  </div>
 </template>
 
 <script>
@@ -50,26 +50,14 @@ export default {
 
 <style>
 .details {
-  height: 100vh;
-  width: 100vw;
- display: grid;
-
+  display: grid;
+  align-content: center;
+  justify-content: center;
 }
-h2{
-
-padding-top: 1%;
+h2 {
+  padding-top: 1%;
 }
-img{
-
-}
-#info{
-
-}
-#summary{
-
-}
-
-li{
+li {
   list-style: none;
 }
 </style>
