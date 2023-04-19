@@ -1,32 +1,50 @@
 <template>
   <div>
-    <!-- <listed-movies/> -->
-    Favorite Movies:
-     <div v-for="movie in movies" v-bind:key="movie.id">{{ movie }}</div>
-    </div> 
+    <movies-display v-bind:movies="favoriteMovies" />
+  </div>
 </template>
 
 <script>
+import MoviesDisplay from "../components/MoviesDisplay.vue";
+import MoviesService from "../services/MoviesService";
 import UserService from "../services/UserService";
-// import ListedMovies from "../components/ListedMovies.vue";
+
 export default {
-    name: "fav-movies",
-  components: {},
+  name: "favorites",
   data() {
     return {
-      movies: []
+      favoriteMovies: [],
+      userMovies: [],
     };
   },
   created() {
-    UserService.favoriteMovie(3).then((response) => {
-      this.movies = response.data;
+    //console.log(this.$route.params.id)
+    UserService.favoriteMovie(this.$store.state.user.userId).then((response) => {
+      this.userMovies = response.data; 
+
+      this.userMovies.forEach((movie) => {
+      console.log(movie.movieId); 
+      MoviesService.getMovieById(movie.movieId).then((response) => {
+        this.favoriteMovies.push(response.data);
+      });
     });
+    });
+    
   },
+  components: { MoviesDisplay },
 };
-
-
 </script>
 
 <style>
+#genrename {
+  padding-top: 30px;
+  display: flex;
+  justify-content: center;
+  font-size: 50px;
+  color: black;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+}
+</style> 
 
-</style>
+  

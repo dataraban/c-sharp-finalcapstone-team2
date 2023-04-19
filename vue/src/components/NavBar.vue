@@ -11,7 +11,10 @@
         <router-link
           v-for="genre in genres"
           :key="genre.id"
-          v-bind:to="{ name: 'genre-id', params: { id: genre.id, name: genre.name } }"
+          v-bind:to="{
+            name: 'genre-id',
+            params: { id: genre.id, name: genre.name },
+          }"
           v-on:click.native="changeGenre(genre.id)"
         >
           {{ genre.name }}
@@ -42,7 +45,13 @@
         >
           <button id="settingsBtn">Settings</button>
         </router-link>
-
+        <router-link
+          class="favorites"
+          v-bind:to="{ name: 'favorites' }"
+          v-if="$store.state.token != ''"
+        >
+          <button id="favoritesBtn">Favorites</button>
+        </router-link>
         <router-link
           class="logout"
           v-bind:to="{ name: 'logout' }"
@@ -118,7 +127,6 @@ button {
 }
 .genredropdown {
   float: left;
-
 }
 .dropdown-content {
   display: none;
