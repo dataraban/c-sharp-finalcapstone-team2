@@ -5,6 +5,7 @@ using Capstone.Security;
 using System;
 using System.Collections.Generic;
 using System.Security.Cryptography.Xml;
+using static System.Collections.Specialized.BitVector32;
 
 namespace Capstone.Controllers
 {
@@ -62,7 +63,7 @@ namespace Capstone.Controllers
         }
 
         [HttpPost("/userGenre/{userId}")]//is this the right route? Please check
-        public IActionResult AddUserGenre(UserGenre userGenre)
+        public IActionResult AddFavoriteGenre(UserGenre userGenre)
         {
             //IActionResult result;
 

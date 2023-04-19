@@ -27,7 +27,7 @@ namespace Capstone.DAO
                     conn.Open();
                     //get a list of User's Favorite movies from the user_movie table
 
-                    SqlCommand cmd = new SqlCommand("SELECT user_id, movie_id FROM user_movie WHERE user_id = @user_id,", conn);
+                    SqlCommand cmd = new SqlCommand("SELECT user_id, movie_id FROM user_movie WHERE user_id = @user_id", conn);
                     cmd.Parameters.AddWithValue("@user_id", userId);
                     
                     SqlDataReader reader = cmd.ExecuteReader();
