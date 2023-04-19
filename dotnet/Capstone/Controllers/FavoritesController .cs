@@ -38,7 +38,7 @@ namespace Capstone.Controllers
 
         }
 
-        [HttpGet("/userGenre/{userId}")]
+        [HttpGet("userGenre/{userId}")]
         public ActionResult<UserGenre> GetGenre(int userId)
         {
             IList<UserGenre> userGenre = favoritesDao.GetFavoriteGenres(userId);
@@ -70,7 +70,7 @@ namespace Capstone.Controllers
             UserGenre added = favoritesDao.AddFavoriteGenre(userGenre.UserId, userGenre.GenreId);
             return Created($"/userGenre/{added.GenreId}", added);
 
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         //[HttpPut("{movieId}")]
