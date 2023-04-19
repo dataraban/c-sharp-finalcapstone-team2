@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div class="grid-container">
-      <movies-display v-bind:movies="this.movies"/>
+      <movies-display-store/>
     </div>
     <div class="carousel">
       <!-- saving space to build in carousel functionality here -->
@@ -9,31 +9,27 @@
   </div>
 </template>
 <script>
-import MoviesDisplay from '../components/MoviesDisplay.vue'
+import MoviesDisplayStore from '../components/MoviesDisplayStore.vue'
 import MoviesService from '../services/MoviesService'
 
 export default {
   name: "home",
   data() {
     return {
-      movies: [],
+      // movies: [],
     };
   },
   methods: {
     getMovieById(id) {
       this.$router.push(`/movie/${id}`);
-      //console.log(id);
     },
   },
   created() {
-    MoviesService.listMovies().then((response) => {
-      this.movies = response.data.results;
-      this.movies.forEach((movie) => {
-      movie.favorite = false;
-    })
+    MoviesService.listMovies().then((response) => {      
+      this.$store.commit('UPDATE_MOVIES', response.data.results)
     })
   },
-  components: { MoviesDisplay }
+  components: { MoviesDisplayStore }
 };
 </script>
 
