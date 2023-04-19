@@ -6,11 +6,11 @@ import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
 import MovieDetails from '../views/MovieDetails'
-import Favorites from '../views/Favorites'
 import UserProfile from '../views/UserProfile'
 import UserSettings from '../views/UserSettings'
 import Genre from '../views/Genre'
 import SearchView from '../views/SearchView'
+import UserFavorites from '../views/UserFavorites'
 
 Vue.use(Router)
 
@@ -76,7 +76,7 @@ const router = new Router({
     {
       path: '/favorites',
       name: 'favorites',
-      component: Favorites,
+      component: UserFavorites,
       meta: {
         requiresAuth: true
       }
