@@ -48,10 +48,13 @@
     <div class="insert-comment">
     <label class="comments">Comments:</label>
     </div>
+    <form @submit.prevent="handleSubmit" >
     <div class="text-center">
-      <textarea class="commentArea" name="comments" rows="4" cols="50">
+      <textarea @submit.prevent="handleSubmit" class="commentArea" name="comments" rows="4" cols="50" v-model="comment">
       </textarea>
     </div>
+    <button class="submit">Submit</button>
+    </form>
     <div id="comment-section">
       <div class="card text-right">
         <div class="card-body">
@@ -73,8 +76,14 @@ export default {
   data() {
     return {
       users: [],
-      comments: []
+      comments: [],
+      comment: ""
     };
+  },
+  methods: {
+    handleSubmit() {
+    console.log("Form submitted.");
+    }
   },
   created() {
     UserService.ViewUsers().then((response) => {
