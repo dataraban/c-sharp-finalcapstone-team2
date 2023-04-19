@@ -7,6 +7,9 @@ export default {
     },
     ViewUsers() {
         return axios.get('/friendslist');
+    },
+    ViewComment() {
+        return axios.get('/commentslist');
     }
 
 }

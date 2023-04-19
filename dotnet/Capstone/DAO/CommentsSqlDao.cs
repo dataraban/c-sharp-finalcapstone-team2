@@ -7,7 +7,7 @@ using Capstone.Security.Models;
 
 namespace Capstone.DAO
 {
-    public class CommentsSqlDao
+    public class CommentsSqlDao : ICommentsDao
     {
         private readonly string connectionString;
 
@@ -26,13 +26,13 @@ namespace Capstone.DAO
                 {
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand("SELECT * from user_comments", conn);
+                    SqlCommand cmd = new SqlCommand("SELECT user_author_id, comment_text from user_comments JOIN users on users.user_id = user_posted_id WHERE username = 'Josephina366'", conn);
 
                     SqlDataReader reader = cmd.ExecuteReader();
 
                     while (reader.Read())
                     {
-                        string comment = Convert.ToString(reader["comment"]);
+                        string comment = Convert.ToString(reader["comment_text"]);
                        comments.Add(comment);
                     }
                 }
