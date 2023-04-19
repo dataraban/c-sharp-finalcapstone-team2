@@ -8,7 +8,7 @@ using System.Security.Cryptography.Xml;
 
 namespace Capstone.Controllers
 {
-   [Route("api/[controller]")]
+   [Route("[controller]")]
     [ApiController]
     public class FavoritesController : ControllerBase
     {

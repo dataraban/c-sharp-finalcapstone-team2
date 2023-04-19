@@ -1,6 +1,7 @@
 <template>
   <div>
     <!-- <listed-movies/> -->
+    Favorite Movies:
      <div v-for="movie in movies" v-bind:key="movie.id">{{ movie }}</div>
     </div> 
 </template>
@@ -17,8 +18,8 @@ export default {
     };
   },
   created() {
-    UserService.favoriteMovie().then((response) => {
-      this.users = response.data;
+    UserService.favoriteMovie(3).then((response) => {
+      this.movies = response.data;
     });
   },
 };
