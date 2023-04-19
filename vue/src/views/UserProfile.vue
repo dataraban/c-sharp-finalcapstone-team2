@@ -58,6 +58,7 @@
           <p>Your Feed</p>
           <label class="card text-right">Name: {{ Name }}</label>
           <p>Wow, can we be friends?</p>
+           <div v-for="comment in comments" v-bind:key="comment.id">{{ comment }}</div>
         </div>
       </div>
     </div>
@@ -72,11 +73,15 @@ export default {
   data() {
     return {
       users: [],
+      comments: []
     };
   },
   created() {
     UserService.ViewUsers().then((response) => {
       this.users = response.data;
+    }),
+    UserService.ViewComment().then((response) => {
+      this.comments = response.data;
     });
   },
 };
