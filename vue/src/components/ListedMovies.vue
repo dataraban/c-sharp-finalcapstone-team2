@@ -32,7 +32,7 @@ export default {
   //   movieList.forEach((movie) => {
   //     this.getMovieFromList(movie);
   //   });
-  //},
+ // },
   components: { MoviesDisplay },
 };
 </script>
