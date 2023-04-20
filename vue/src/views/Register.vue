@@ -36,7 +36,7 @@
       value="Accepted"
       unchecked-value="Not Accepted"
     >
-      <div class="popup" v-on:click="clickPopup()">I accept the terms and conditions:
+      <div class="popup" v-on:click="clickPopup()">&nbsp; &nbsp;I agree to be groovy
         <span class="popuptext" id="termsPopup"><a>Please accept!</a></span>
         </div>
     </b-form-checkbox>
