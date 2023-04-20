@@ -107,11 +107,13 @@ export default {
 
 <style scoped>
 #header {
-  padding-top: 2%;
-  color: plum;
+    padding-top:30px;
+  display: flex;
+  justify-content: center;
+  font-size: 50px;
+  color: black;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: black;
-  font-family: fantasy;
 }
 #settings {
   display: flex;

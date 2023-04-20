@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div class="container">
+    <h1>Favorite Movies</h1>
     <movies-display v-bind:movies="favoriteMovies" />
   </div>
 </template>
@@ -36,8 +37,19 @@ export default {
 </script>
 
 <style>
+.container {
+  padding-bottom: 30vh;
+}
+h1 {
+   padding-top:30px;
+  display: flex;
+  justify-content: center;
+  font-size: 50px;
+  color: black;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+}
 #genrename {
-  padding-top: 30px;
   display: flex;
   justify-content: center;
   font-size: 50px;

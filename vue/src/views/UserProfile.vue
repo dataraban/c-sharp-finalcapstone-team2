@@ -106,13 +106,13 @@ export default {
   justify-content: center;
 }
 #profileHeading {
-  padding-top: 2%;
+    padding-top:30px;
   display: flex;
   justify-content: center;
-  color: plum;
+  font-size: 50px;
+  color: black;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: black;
-  font-family: fantasy;
 }
 #profilePhoto {
   height: 250px;
