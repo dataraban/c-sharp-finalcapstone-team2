@@ -2,7 +2,7 @@
 
   <div>
     <h1 id="genrename" class="text-center">{{genrename}}</h1>
-    <movies-display v-bind:movies="moviesByGenre"/>
+    <movies-display-store/>
     <!-- <jumpscare/> -->
     <!-- <jumpscare-two/> -->
     </div> 
