@@ -25,5 +25,11 @@ namespace Capstone.Controllers
         {
             return commentsDao.ViewComments();
         }
+
+        [HttpPost("/commentslist")]
+        public List<string> PostComment(Comment comment)
+        {
+            return commentsDao.PostComment(1, 1, comment.Message);
+        }
     }
         }

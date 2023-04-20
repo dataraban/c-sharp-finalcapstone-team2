@@ -52,17 +52,17 @@ namespace Capstone.Controllers
             }
         }
 
-        [HttpPost("/userMovie/{userId}")]//is this the right route? Please check
-        public IActionResult AddUserMovie(UserMovie userMovie)
+        [HttpPost("userMovie/")]//is this the right route? Please check
+        public IActionResult AddUserMovie(UserMovie um)
         {
             //IActionResult result;
 
-            UserMovie added = favoritesDao.AddFavoriteMovie(userMovie.UserId, userMovie.MovieId);
-            return Created($"/userMovie/{added.MovieId}", added);
+            UserMovie added = favoritesDao.AddFavoriteMovie(um.UserId, um.MovieId);
+            return Created($"/userMovie/{added.UserId}/{added.MovieId}", added);
             //throw new NotImplementedException();
         }
 
-        [HttpPost("/userGenre/{userId}")]//is this the right route? Please check
+        [HttpPost("userGenre/{userId}")]//is this the right route? Please check
         public IActionResult AddFavoriteGenre(UserGenre userGenre)
         {
             //IActionResult result;

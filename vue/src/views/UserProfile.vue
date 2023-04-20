@@ -50,10 +50,10 @@
     </div>
     <form @submit.prevent="handleSubmit" >
     <div class="text-center">
-      <textarea @submit.prevent="handleSubmit" class="commentArea" name="comments" rows="4" cols="50" v-model="comment">
+      <textarea @submit.prevent="handleSubmit" class="commentArea" name="comments" rows="4" cols="50" v-model="comment.message">
       </textarea>
     </div>
-    <button class="submit">Submit</button>
+    <button class="submit" v-on:click=PostNewComment>Submit</button>
     </form>
     <div id="comment-section">
       <div class="card text-right">
@@ -77,12 +77,17 @@ export default {
     return {
       users: [],
       comments: [],
-      comment: ""
+      comment: {message: ''}
     };
   },
   methods: {
     handleSubmit() {
     console.log("Form submitted.");
+    },
+    PostNewComment() {
+      UserService.PostComment(this.comment).then((response) => {
+      this.comments = response.data;
+    })
     }
   },
   created() {
@@ -90,9 +95,6 @@ export default {
       this.users = response.data;
     }),
     UserService.ViewComment().then((response) => {
-      this.comments = response.data;
-    }),
-    UserService.PostComment().then((response) => {
       this.comments = response.data;
     })
   },
