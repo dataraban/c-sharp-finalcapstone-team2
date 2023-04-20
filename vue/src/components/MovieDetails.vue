@@ -18,7 +18,7 @@
     <div id="genres">
       <h4>Genres</h4>
       <ul>
-        <li v-for="genre in movie.genres" :key="genre.id">{{ genre.name }}</li>
+        <li v-for="genre in movie.genres" :key="genre.id">{{ genre.name }}</li >
       </ul>
     </div>
   </div>
@@ -50,14 +50,29 @@ export default {
 
 <style>
 .details {
-  display: grid;
-  align-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
+  text-align: center;
+}
+#summary {
+  width: 750px;
 }
 h2 {
   padding-top: 1%;
 }
+ul {
+  text-align: center;
+}
 li {
   list-style: none;
+  display: inline-block;
+  text-align: left;
+}
+li:not(:last-child) { 
+  margin: 5px;  
+  justify-content: left;
 }
 </style>

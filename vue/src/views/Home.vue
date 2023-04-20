@@ -3,9 +3,6 @@
     <div class="grid-container">
       <movies-display-store/>
     </div>
-    <div class="carousel">
-      <!-- saving space to build in carousel functionality here -->
-    </div>
   </div>
 </template>
 <script>
