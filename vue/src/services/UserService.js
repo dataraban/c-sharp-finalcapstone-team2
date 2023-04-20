@@ -11,11 +11,13 @@ export default {
     ViewComment() {
         return axios.get('/commentslist');
     },
-    AddFavoriteMovie(userId, movieId){
-        return axios.post(`/Favorites/userMovie/${userId}`, {userId,movieId})
+    AddFavoriteMovie(usermovie){
+        console.log(usermovie);
+        // let usermovie = {UserId: userid, MovieId: movieid};
+        return axios.post(`/Favorites/userMovie/`, usermovie)
     },
-    PostComment() {
-        return axios.post('/commentslist');
+    PostComment(comment) {
+        return axios.post('/commentslist', comment);
     }
 
 }
