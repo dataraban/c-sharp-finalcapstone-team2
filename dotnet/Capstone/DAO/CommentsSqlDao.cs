@@ -26,7 +26,7 @@ namespace Capstone.DAO
                 {
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand("SELECT user_author_id, comment_text from user_comments JOIN users on users.user_id = user_posted_id WHERE username = 'Josephina366'", conn);
+                    SqlCommand cmd = new SqlCommand("SELECT user_author_id, comment_text from user_comments JOIN users on users.user_id = user_posted_id WHERE username = 'Josephina366';", conn);
 
                     SqlDataReader reader = cmd.ExecuteReader();
 

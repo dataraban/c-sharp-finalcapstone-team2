@@ -5,6 +5,7 @@ using Capstone.Security;
 using System;
 using System.Collections.Generic;
 using System.Security.Cryptography.Xml;
+using static System.Collections.Specialized.BitVector32;
 
 namespace Capstone.Controllers
 {
@@ -37,7 +38,7 @@ namespace Capstone.Controllers
 
         }
 
-        [HttpGet("/userGenre/{userId}")]
+        [HttpGet("userGenre/{userId}")]
         public ActionResult<UserGenre> GetGenre(int userId)
         {
             IList<UserGenre> userGenre = favoritesDao.GetFavoriteGenres(userId);
@@ -62,14 +63,14 @@ namespace Capstone.Controllers
         }
 
         [HttpPost("/userGenre/{userId}")]//is this the right route? Please check
-        public IActionResult AddUserGenre(UserGenre userGenre)
+        public IActionResult AddFavoriteGenre(UserGenre userGenre)
         {
             //IActionResult result;
 
             UserGenre added = favoritesDao.AddFavoriteGenre(userGenre.UserId, userGenre.GenreId);
             return Created($"/userGenre/{added.GenreId}", added);
 
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         //[HttpPut("{movieId}")]

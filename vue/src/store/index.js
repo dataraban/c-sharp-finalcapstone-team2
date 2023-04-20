@@ -20,7 +20,8 @@ export default new Vuex.Store({
   state: {
     token: currentToken || '',
     user: currentUser || {},
-    currentGenreId: 0
+    currentGenreId: 0,
+    movies: []
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -42,6 +43,19 @@ export default new Vuex.Store({
     CHANGE_GENRE_ID(state, newGenreId) {
       state.currentGenreId = newGenreId;
     },
+    UPDATE_MOVIES(state, newMovies) {
+      state.movies = newMovies;
+      state.movies.forEach((movie) => {
+        movie.favorite = false;
+      })
+    },
+    TOGGLE_FAVORITE(state, favoriteMovie){
+      // let newFavorite = state.movies.find((movie) => {
+      //   return movie.id === favoriteMovie.id
+      // })
+      // newFavorite.favorite = !newFavorite.favorite;
+      favoriteMovie.favorite = !favoriteMovie.favorite;
+    }
     
     // ADD_PLAYLIST(state, review) {
     //   state.reviews.unshift(review); working on these for the watch list page
