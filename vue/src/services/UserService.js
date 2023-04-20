@@ -13,6 +13,9 @@ export default {
     },
     AddFavoriteMovie(userId, movieId){
         return axios.post(`/Favorites/userMovie/${userId}`, {userId,movieId})
+    },
+    PostComment() {
+        return axios.post('/commentslist');
     }
 
 }

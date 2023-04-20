@@ -91,7 +91,10 @@ export default {
     }),
     UserService.ViewComment().then((response) => {
       this.comments = response.data;
-    });
+    }),
+    UserService.PostComment().then((response) => {
+      this.comments = response.data;
+    })
   },
 };
 </script>
