@@ -38,7 +38,7 @@ export default {
 
 <style>
 .container {
-  padding-bottom: 30vh;
+  padding-bottom: 100vh;
 }
 h1 {
    padding-top:30px;
