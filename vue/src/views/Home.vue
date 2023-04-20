@@ -38,6 +38,7 @@ export default {
   justify-content: center;
   padding-top: 2vh;
   padding-inline: 5vw;
+  padding-bottom: 12vh;;
 }
 
 </style>

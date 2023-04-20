@@ -1,6 +1,6 @@
 <template>
 
-  <div>
+  <div class="genre">
     <h1 id="genrename" class="text-center">{{genrename}}</h1>
     <movies-display-store/>
     <!-- <jumpscare/> -->
@@ -39,6 +39,9 @@ export default {
 </script>
 
 <style>
+.genre {
+  padding-bottom: 12vh;
+}
 #genrename {
   padding-top:30px;
   display: flex;

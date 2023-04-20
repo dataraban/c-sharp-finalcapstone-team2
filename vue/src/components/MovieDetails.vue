@@ -1,6 +1,6 @@
 <template>
   <div class="details">
-    <h2>
+    <h2 class="title">
       {{ movie.title }}
     </h2>
     <img v-bind:src="'https://image.tmdb.org/t/p/w185' + movie.poster_path" />
@@ -56,9 +56,19 @@ export default {
   align-items: center;
   justify-content: center;
   text-align: center;
+  padding-bottom: 12vh;
 }
 #summary {
   width: 750px;
+}
+.title {
+  padding-top:30px;
+  display: flex;
+  justify-content: center;
+  font-size: 50px;
+  color: black;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
 }
 h2 {
   padding-top: 1%;
