@@ -2,13 +2,17 @@
 
   <div>
     <h1 id="genrename" class="text-center">{{genrename}}</h1>
-    <movies-display-store/>
+    <movies-display v-bind:movies="moviesByGenre"/>
+    <!-- <jumpscare/> -->
+    <!-- <jumpscare-two/> -->
     </div> 
 </template>
 
 <script>
 import MoviesDisplayStore from '../components/MoviesDisplayStore.vue'
 import MoviesService from '../services/MoviesService'
+// import Jumpscare from '../components/Jumpscare.vue'
+// import JumpscareTwo from '../components/JumpscareTwo.vue'
 
 export default {
     name: "genre",
