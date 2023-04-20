@@ -75,3 +75,5 @@ INSERT INTO user_movie (user_id, movie_id) VALUES (3, 10);
 
 GO
 
+INSERT INTO user_movie (user_id, movie_id) VALUES( 1 , 76600);
+INSERT INTO user_movie (user_id, movie_id) VALUES( 3 , 502356);

@@ -170,5 +170,14 @@ img {
 #comment-section {
   width: 750px;
   margin: auto;
+  padding-bottom: 2%;
+  padding-top: 2%;
+}
+.submit {
+   display: flex;
+  align-content: right;
+  justify-content: center;
+   width: 200px;
+  margin: auto;   
 }
 </style>
