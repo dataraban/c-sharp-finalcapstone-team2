@@ -28,7 +28,7 @@
     <div class="userdropdown">
       <router-link v-bind:to="{ name: 'user-profile' }">
         <button id="userBtn">
-          Welcome User
+          Welcome {{$store.state.user.username}}
 
           <!-- want to be able to input the logged in users name in here-->
           <img
